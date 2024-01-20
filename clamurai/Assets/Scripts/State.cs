@@ -14,9 +14,9 @@ public abstract class State
 
     }
 
-    public virtual void HandleInput()
+    public virtual PlayerStates HandleInput()
     {
-
+        return PlayerStates.NO_CHANGE;
     }
 
     public virtual void LogicUpdate()
