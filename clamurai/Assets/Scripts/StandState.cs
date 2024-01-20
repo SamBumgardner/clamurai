@@ -22,7 +22,7 @@ public class StandState : GroundState
 
     public override void Enter()
     {
-        Debug.Log("entering stand state");
+        player.GetComponent<SpriteRenderer>().color = Color.red;
         player.rb.velocity = new Vector2(0, 0);
         base.Enter();
     }

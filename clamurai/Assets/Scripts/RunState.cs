@@ -32,4 +32,10 @@ public class RunState : GroundState
         player.rb.velocity = new Vector2(Player.RUN_SPEED * Input.GetAxis("Horizontal"), 0);
         base.PhysicsUpdate();
     }
+
+    public override void Enter()
+    {
+        player.GetComponent<SpriteRenderer>().color = Color.blue;
+        base.Enter();
+    }
 }
