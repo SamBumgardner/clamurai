@@ -20,10 +20,15 @@ public class StandState : GroundState
         return base.HandleInput();
     }
 
+    public override void PhysicsUpdate()
+    {
+        player.rb.velocity = new Vector2(0, 0);
+        base.PhysicsUpdate();
+    }
+
     public override void Enter()
     {
         player.GetComponent<SpriteRenderer>().color = Color.red;
-        player.rb.velocity = new Vector2(0, 0);
         base.Enter();
     }
 }

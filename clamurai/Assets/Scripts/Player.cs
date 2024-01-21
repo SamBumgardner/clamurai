@@ -6,16 +6,22 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public const float RUN_SPEED = 10f;
+    public const float JUMP_SPEED = 10f;
+    public const float DIST_GROUND = .55f;
+    public const float DIST_SIDE = .5f;
+    public const float FALL_YSPEED_CUTOFF = 3f;
 
     private StateMachine stateMachine = new StateMachine();
     private List<State> states = new List<State>();
-    public Rigidbody2D rb;
+    private LayerMask terrainMask;
 
+    public Rigidbody2D rb;
     public bool on_ground = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        terrainMask = LayerMask.GetMask("Terrain");
         rb = GetComponent<Rigidbody2D>();
 
         states.Add(new StandState(this, stateMachine));
@@ -52,10 +58,10 @@ public class Player : MonoBehaviour
 
     public bool IsOnGround()
     {
-        Debug.DrawRay(transform.position + new Vector3(.5f, 0, 0), Vector2.down * .55f, Color.green);
-        Debug.DrawRay(transform.position - new Vector3(.5f, 0, 0), Vector2.down * .55f, Color.green);
-        var hitLeft = Physics2D.Raycast(transform.position + new Vector3(.5f, 0, 0), Vector2.down, .55f, LayerMask.GetMask("Terrain"));
-        var hitRight = Physics2D.Raycast(transform.position - new Vector3(.5f, 0, 0), Vector2.down, .55f, LayerMask.GetMask("Terrain"));
+        Debug.DrawRay(transform.position + new Vector3(DIST_SIDE, 0, 0), Vector2.down * DIST_GROUND, Color.green);
+        Debug.DrawRay(transform.position - new Vector3(DIST_SIDE, 0, 0), Vector2.down * DIST_GROUND, Color.green);
+        var hitLeft = Physics2D.Raycast(transform.position + new Vector3(DIST_SIDE, 0, 0), Vector2.down, DIST_GROUND, terrainMask);
+        var hitRight = Physics2D.Raycast(transform.position - new Vector3(DIST_SIDE, 0, 0), Vector2.down, DIST_GROUND, terrainMask);
         return hitLeft.collider != null || hitRight.collider != null;
     }
 }

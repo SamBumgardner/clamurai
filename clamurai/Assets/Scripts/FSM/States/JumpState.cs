@@ -17,7 +17,7 @@ public class JumpState : AirState
     public override void Enter()
     {
         player.GetComponent<SpriteRenderer>().color = Color.green;
-        player.rb.velocity = new Vector2(player.rb.velocity.x, player.rb.velocity.y + 10);
+        player.rb.velocity = new Vector2(player.rb.velocity.x, player.rb.velocity.y + Player.JUMP_SPEED);
         base.Enter();
     }
 }

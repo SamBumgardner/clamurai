@@ -4,7 +4,9 @@ public class AirState : State
 
     public override PlayerStates HandleInput()
     {
-        if (player.IsOnGround() && player.rb.velocity.y <= 1)
+        // Velocity check makes sure this doesn't glue player back to ground when starting jump
+        // Value doesn't matter too much, just check its positive and somewhat larger than 0.
+        if (player.IsOnGround() && player.rb.velocity.y <= 1) 
         {
             return PlayerStates.STAND;
         }

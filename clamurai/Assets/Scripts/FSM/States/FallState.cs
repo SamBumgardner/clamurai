@@ -7,9 +7,9 @@ public class FallState : AirState
     public override void Enter()
     {
         player.GetComponent<SpriteRenderer>().color = Color.yellow;
-        if (player.rb.velocity.y > 3)
+        if (player.rb.velocity.y > Player.FALL_YSPEED_CUTOFF) 
         {
-            player.rb.velocity = new Vector2(player.rb.velocity.x, 3);
+            player.rb.velocity = new Vector2(player.rb.velocity.x, Player.FALL_YSPEED_CUTOFF);
         }
         base.Enter();
     }
