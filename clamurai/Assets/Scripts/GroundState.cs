@@ -5,6 +5,11 @@ public class GroundState : State
     public override PlayerStates HandleInput()
     {
         // If player isn't touching the ground, change state to falling.
+        if (!player.IsOnGround())
+        {
+            return PlayerStates.FALL;
+        }
+
         return base.HandleInput();
     }
 }

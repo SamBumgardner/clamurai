@@ -8,7 +8,7 @@ public class StandState : GroundState
     {
         if(Input.GetButtonDown("Jump"))
         {
-            //return PlayerStates.JUMP;
+            return PlayerStates.JUMP;
         }
 
         var horizontalAxis = Input.GetAxis("Horizontal");

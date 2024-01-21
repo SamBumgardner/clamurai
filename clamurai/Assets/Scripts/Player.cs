@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
         states.Add(new StandState(this, stateMachine));
         states.Add(new RunState(this, stateMachine));
+        states.Add(new JumpState(this, stateMachine));
+        states.Add(new FallState(this, stateMachine));
         stateMachine.Initialize(states[(int)PlayerStates.STAND]);
     }
 
@@ -39,22 +41,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         applyInputAndTransitionStates();
         stateMachine.CurrentState.LogicUpdate();
     }
 
     private void FixedUpdate()
     {
-
-        var new_isOnGround = IsOnGround();
-        if (new_isOnGround != on_ground)
-        {
-            on_ground = new_isOnGround;
-            print("woah, on_ground is now " + on_ground.ToString());
-        }
-
         stateMachine.CurrentState.PhysicsUpdate();
     }
 
