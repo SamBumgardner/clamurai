@@ -8,26 +8,32 @@ public abstract class BaseEnemy : MonoBehaviour
     public float contactDamage;
     public float invulnTimeMax;
 
-    private LayerMask playerLayerMask; // gotta make this layer, then make sure the player's on it, then make sure this grabs it during startup
+    private LayerMask playerHurtboxLayerMask; 
     private float invulnTimeCurrent = 0f;
+    private bool invuln = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        // set playerLayerMask value
+        playerHurtboxLayerMask = LayerMask.GetMask("PlayerHurtbox");
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if not invuln:
-        //  Check for overlap between hitbox & player hurtbox - if so, hurt player
-        //  Expect that other folks will tell enemy if it got hurt.
-
-        // if invuln:
-        // increment invuln timer by delta
-        // if invuln timer >= invulnTime, return to normal
+        if (!invuln)
+        {
+            //attempt to hurt player (check for overlap and collision
+        }
+        else
+        {
+            invulnTimeCurrent += Time.deltaTime;
+            if (invulnTimeCurrent >= invulnTimeMax)
+            {
+                invuln = false;
+            }
+        }
     }
 
     private void LateUpdate()
@@ -37,12 +43,19 @@ public abstract class BaseEnemy : MonoBehaviour
             // enemy defeated, blow em up
         }
 
-        // if transitioned between invuln / non-invuln, update visuals accordingly
+        if (invuln)
+        {
+            // dim color to grey if not already
+        }
+        else
+        {
+            // return color to normal
+        }
     }
     
     public void DamagingCollision(float damage)
     {
-        if (true) // if not invuln
+        if (!invuln) // if not invuln
         {
             //  if using state machine, hand it off to state
             // NOTE: in state, want to be consistent with "hurt" handling happening before or after normal update. Consistent rule can be to set variable that'll be used when picking next frame's transitional state.
@@ -53,12 +66,20 @@ public abstract class BaseEnemy : MonoBehaviour
             else
             {
                 // default behavior - or just have everything have a state to hand off to, that's probably better
-                health -= damage;
-                // become invuln, reset invuln timer
+                Hurt(damage);
             }
         }
-
-        // 
     }
-    // Need to have a method for handling getting hit - should defer to state for behaviorif using state machine
+
+    public virtual void Hurt(float damage)
+    {
+        health -= damage;
+        invuln = true;
+        invulnTimeCurrent = 0;
+    }
+
+    public virtual void Defeat()
+    {
+        // stop state machine processing, activate defeated animation. Make sure have callback to perform cleanup when done.
+    }
 }
