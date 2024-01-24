@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,8 +9,8 @@ public class Player : MonoBehaviour
     public const float DIST_SIDE = .5f;
     public const float FALL_YSPEED_CUTOFF = 3f;
 
-    private StateMachine stateMachine = new StateMachine();
-    private List<State> states = new List<State>();
+    private StateMachine<Player> stateMachine = new StateMachine<Player>();
+    private List<State<Player>> states = new List<State<Player>>();
     private LayerMask terrainMask;
 
     public Rigidbody2D rb;

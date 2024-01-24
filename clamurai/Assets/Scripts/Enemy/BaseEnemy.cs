@@ -8,7 +8,10 @@ public abstract class BaseEnemy : MonoBehaviour
     public float contactDamage;
     public float invulnTimeMax;
 
-    private LayerMask playerHurtboxLayerMask; 
+    private LayerMask playerHurtboxLayerMask;
+    private StateMachine<BaseEnemy> stateMachine = new StateMachine<BaseEnemy>();
+    private List<State<BaseEnemy>> states = new List<State<BaseEnemy>>();
+
     private float invulnTimeCurrent = 0f;
     private bool invuln = false;
 

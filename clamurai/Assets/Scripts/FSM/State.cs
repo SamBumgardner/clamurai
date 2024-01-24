@@ -1,11 +1,11 @@
-public abstract class State
+public abstract class State<T>
 {
-    protected Player player;
-    protected StateMachine stateMachine;
+    protected T owner;
+    protected StateMachine<T> stateMachine;
 
-    protected State(Player player, StateMachine stateMachine)
+    protected State(T owner, StateMachine<T> stateMachine)
     {
-        this.player = player;
+        this.owner = owner;
         this.stateMachine = stateMachine;
     }
 
