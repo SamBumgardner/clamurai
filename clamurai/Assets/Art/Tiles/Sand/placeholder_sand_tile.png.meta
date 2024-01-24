@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,6 +119,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -126,10 +139,10 @@ TextureImporter:
       name: placeholder_sand_tile_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 69
-        width: 16
-        height: 16
+        x: 0
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +160,10 @@ TextureImporter:
       name: placeholder_sand_tile_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 69
-        width: 16
-        height: 16
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +181,10 @@ TextureImporter:
       name: placeholder_sand_tile_2
       rect:
         serializedVersion: 2
-        x: 35
-        y: 69
-        width: 16
-        height: 16
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +202,10 @@ TextureImporter:
       name: placeholder_sand_tile_3
       rect:
         serializedVersion: 2
-        x: 52
-        y: 69
-        width: 16
-        height: 16
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +223,10 @@ TextureImporter:
       name: placeholder_sand_tile_4
       rect:
         serializedVersion: 2
-        x: 69
-        y: 69
-        width: 16
-        height: 16
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +244,10 @@ TextureImporter:
       name: placeholder_sand_tile_5
       rect:
         serializedVersion: 2
-        x: 1
-        y: 52
-        width: 16
-        height: 16
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,10 +265,10 @@ TextureImporter:
       name: placeholder_sand_tile_6
       rect:
         serializedVersion: 2
-        x: 18
-        y: 52
-        width: 16
-        height: 16
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,10 +286,10 @@ TextureImporter:
       name: placeholder_sand_tile_7
       rect:
         serializedVersion: 2
-        x: 35
-        y: 52
-        width: 16
-        height: 16
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,10 +307,10 @@ TextureImporter:
       name: placeholder_sand_tile_8
       rect:
         serializedVersion: 2
-        x: 52
-        y: 52
-        width: 16
-        height: 16
+        x: 256
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,10 +328,10 @@ TextureImporter:
       name: placeholder_sand_tile_9
       rect:
         serializedVersion: 2
-        x: 69
-        y: 52
-        width: 16
-        height: 16
+        x: 320
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -336,10 +349,10 @@ TextureImporter:
       name: placeholder_sand_tile_10
       rect:
         serializedVersion: 2
-        x: 86
-        y: 52
-        width: 16
-        height: 16
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,10 +370,10 @@ TextureImporter:
       name: placeholder_sand_tile_11
       rect:
         serializedVersion: 2
-        x: 103
-        y: 52
-        width: 16
-        height: 16
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,10 +391,10 @@ TextureImporter:
       name: placeholder_sand_tile_12
       rect:
         serializedVersion: 2
-        x: 120
-        y: 52
-        width: 16
-        height: 16
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -399,10 +412,10 @@ TextureImporter:
       name: placeholder_sand_tile_13
       rect:
         serializedVersion: 2
-        x: 1
-        y: 35
-        width: 16
-        height: 16
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -420,10 +433,10 @@ TextureImporter:
       name: placeholder_sand_tile_14
       rect:
         serializedVersion: 2
-        x: 18
-        y: 35
-        width: 16
-        height: 16
+        x: 256
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,10 +454,10 @@ TextureImporter:
       name: placeholder_sand_tile_15
       rect:
         serializedVersion: 2
-        x: 35
-        y: 35
-        width: 16
-        height: 16
+        x: 320
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,10 +475,10 @@ TextureImporter:
       name: placeholder_sand_tile_16
       rect:
         serializedVersion: 2
-        x: 52
-        y: 35
-        width: 16
-        height: 16
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +496,10 @@ TextureImporter:
       name: placeholder_sand_tile_17
       rect:
         serializedVersion: 2
-        x: 69
-        y: 35
-        width: 16
-        height: 16
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -504,10 +517,10 @@ TextureImporter:
       name: placeholder_sand_tile_18
       rect:
         serializedVersion: 2
-        x: 86
-        y: 35
-        width: 16
-        height: 16
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -525,10 +538,10 @@ TextureImporter:
       name: placeholder_sand_tile_19
       rect:
         serializedVersion: 2
-        x: 103
-        y: 35
-        width: 16
-        height: 16
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -538,300 +551,6 @@ TextureImporter:
       bones: []
       spriteID: fd6f7457d8d3fe8458f6a621d9dcc393
       internalID: 401481338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_20
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 35
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23f46b4d44802b546833504e7d7696b2
-      internalID: -149172249
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_21
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c02cb9e002b90e844a6b909e129a83e1
-      internalID: 132833065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_22
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e146b1c75c4a204d84ad0787f508930
-      internalID: 425706204
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_23
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dff67a6794979fe4691919cef835c762
-      internalID: 497315841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_24
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 019c84ac609177949b5659a0c9c0ae69
-      internalID: -232125145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_25
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e74880ce098463448b1bb7a666032b83
-      internalID: -592154520
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_26
-      rect:
-        serializedVersion: 2
-        x: 86
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58bfa203475796f46b7edc393bf58a6a
-      internalID: -21682712
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_27
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5551e0483e9ead4bb2436c51b9c0c2c
-      internalID: -482545016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_28
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 18
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a797f81df2e041649a954518024135d7
-      internalID: 688074032
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_29
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db621ef882ca56b479a11097472341e3
-      internalID: 625510934
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_30
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 1
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 82656aa8248c22d41890b7db42d1897f
-      internalID: 1243908035
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_31
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 1
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97fd1d7f9c3138443bd46f80891b510f
-      internalID: 1771436955
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_32
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 1
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b37705e52c0b4b5499b93584f2e45835
-      internalID: -1397247825
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: placeholder_sand_tile_33
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 1
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a29d44bf7a437e41a2c60dfd61d40a0
-      internalID: 47394888
       vertices: []
       indices: 
       edges: []
@@ -860,21 +579,7 @@ TextureImporter:
       placeholder_sand_tile_18: 1330483369
       placeholder_sand_tile_19: 401481338
       placeholder_sand_tile_2: -1577966722
-      placeholder_sand_tile_20: -149172249
-      placeholder_sand_tile_21: 132833065
-      placeholder_sand_tile_22: 425706204
-      placeholder_sand_tile_23: 497315841
-      placeholder_sand_tile_24: -232125145
-      placeholder_sand_tile_25: -592154520
-      placeholder_sand_tile_26: -21682712
-      placeholder_sand_tile_27: -482545016
-      placeholder_sand_tile_28: 688074032
-      placeholder_sand_tile_29: 625510934
       placeholder_sand_tile_3: 2075601365
-      placeholder_sand_tile_30: 1243908035
-      placeholder_sand_tile_31: 1771436955
-      placeholder_sand_tile_32: -1397247825
-      placeholder_sand_tile_33: 47394888
       placeholder_sand_tile_4: -69665233
       placeholder_sand_tile_5: 968216414
       placeholder_sand_tile_6: -1537482010
