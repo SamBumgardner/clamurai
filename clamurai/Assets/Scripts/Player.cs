@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     private List<State> states = new List<State>();
     private LayerMask terrainMask;
 
+    private Animator animator;
+
     public Rigidbody2D rb;
     public bool on_ground = false;
 
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour
     {
         terrainMask = LayerMask.GetMask("Terrain");
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         states.Add(new StandState(this, stateMachine));
         states.Add(new RunState(this, stateMachine));

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public float contactDamage;
     public float invulnTimeMax;
 
-    private LayerMask playerHurtboxLayerMask; 
+    private LayerMask playerHurtboxLayerMask;
     private float invulnTimeCurrent = 0f;
     private bool invuln = false;
 
@@ -16,15 +17,33 @@ public abstract class BaseEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHurtboxLayerMask = LayerMask.GetMask("PlayerHurtbox");
+        StartExtra();
+        playerHurtboxLayerMask = LayerMask.GetMask("Default");
+    }
+
+    public virtual void StartExtra()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateExtra();
         if (!invuln)
         {
             //attempt to hurt player (check for overlap and collision
+            var hitLeft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0, 0), Vector2.down, -0.5f, playerHurtboxLayerMask);
+            var hitRight = Physics2D.Raycast(transform.position - new Vector3(0.5f, 0, 0), Vector2.down, -0.5f, playerHurtboxLayerMask);
+            if (hitLeft.collider != null)
+            {
+                Destroy(hitLeft.collider.gameObject);
+            }
+
+            if (hitRight.collider != null)
+            {
+                Destroy(hitRight.collider.gameObject);
+            }
         }
         else
         {
@@ -34,6 +53,11 @@ public abstract class BaseEnemy : MonoBehaviour
                 invuln = false;
             }
         }
+    }
+
+    public virtual void UpdateExtra()
+    {
+
     }
 
     private void LateUpdate()
@@ -52,7 +76,7 @@ public abstract class BaseEnemy : MonoBehaviour
             // return color to normal
         }
     }
-    
+
     public void DamagingCollision(float damage)
     {
         if (!invuln) // if not invuln
@@ -62,7 +86,7 @@ public abstract class BaseEnemy : MonoBehaviour
             if (false)
             {
 
-            } 
+            }
             else
             {
                 // default behavior - or just have everything have a state to hand off to, that's probably better
