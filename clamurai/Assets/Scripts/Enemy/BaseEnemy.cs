@@ -43,7 +43,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour
             {
                 stateMachine.ChangeState(states[(int)nextState]);
             }
-        } while (false);//nextState != (int)States.NO_CHANGE);
+        } while (nextState != (int)States.NO_CHANGE);
     }
 
     // Update is called once per frame
