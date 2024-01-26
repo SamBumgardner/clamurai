@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -11,8 +9,8 @@ public class Player : MonoBehaviour
     public const float DIST_SIDE = .5f;
     public const float FALL_YSPEED_CUTOFF = 3f;
 
-    private StateMachine stateMachine = new StateMachine();
-    private List<State> states = new List<State>();
+    private StateMachine<Player> stateMachine = new StateMachine<Player>();
+    private List<State<Player>> states = new List<State<Player>>();
     private LayerMask terrainMask;
 
     private Animator animator;
@@ -36,15 +34,15 @@ public class Player : MonoBehaviour
 
     private void applyInputAndTransitionStates()
     {
-        PlayerStates nextState;
+        int nextState;
         do
         {
             nextState = stateMachine.CurrentState.HandleInput();
-            if (nextState != PlayerStates.NO_CHANGE)
+            if (nextState != (int)States.NO_CHANGE)
             {
                 stateMachine.ChangeState(states[(int)nextState]);
             }
-        } while (nextState != PlayerStates.NO_CHANGE);
+        } while (nextState != (int)States.NO_CHANGE);
     }
 
     // Update is called once per frame

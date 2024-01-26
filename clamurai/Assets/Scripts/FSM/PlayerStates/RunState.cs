@@ -2,26 +2,26 @@ using UnityEngine;
 
 public class RunState : GroundState
 {
-	public RunState(Player player, StateMachine stateMachine) : base(player, stateMachine) { }
+	public RunState(Player player, StateMachine<Player> stateMachine) : base(player, stateMachine) { }
 
-    public override PlayerStates HandleInput()
+    public override int HandleInput()
     {
         if(Input.GetButtonDown("Jump"))
         {
-            return PlayerStates.JUMP;
+            return (int)PlayerStates.JUMP;
         }
 
         var horizontalAxis = Input.GetAxis("Horizontal");
 		if (horizontalAxis == 0)
         {
-            return PlayerStates.STAND;
+            return (int)PlayerStates.STAND;
         }
         else // attempt facing switch
         {
             var newXScale = horizontalAxis > 0 ? 1 : -1;
-            var scale = player.transform.localScale;
+            var scale = owner.transform.localScale;
             scale.x = newXScale;
-            player.transform.localScale = scale;
+            owner.transform.localScale = scale;
         }
 
         return base.HandleInput();
@@ -29,13 +29,13 @@ public class RunState : GroundState
 
     public override void PhysicsUpdate()
     {
-        player.rb.velocity = new Vector2(Player.RUN_SPEED * Input.GetAxis("Horizontal"), 0);
+        owner.rb.velocity = new Vector2(Player.RUN_SPEED * Input.GetAxis("Horizontal"), 0);
         base.PhysicsUpdate();
     }
 
     public override void Enter()
     {
-        player.GetComponent<SpriteRenderer>().color = Color.blue;
+        owner.GetComponent<SpriteRenderer>().color = Color.blue;
         base.Enter();
     }
 }
