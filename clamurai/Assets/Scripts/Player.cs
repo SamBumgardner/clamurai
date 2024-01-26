@@ -31,15 +31,15 @@ public class Player : MonoBehaviour
 
     private void applyInputAndTransitionStates()
     {
-        PlayerStates nextState;
+        int nextState;
         do
         {
             nextState = stateMachine.CurrentState.HandleInput();
-            if (nextState != PlayerStates.NO_CHANGE)
+            if (nextState != (int)States.NO_CHANGE)
             {
                 stateMachine.ChangeState(states[(int)nextState]);
             }
-        } while (nextState != PlayerStates.NO_CHANGE);
+        } while (nextState != (int)States.NO_CHANGE);
     }
 
     // Update is called once per frame

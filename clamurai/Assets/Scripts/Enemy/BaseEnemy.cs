@@ -1,35 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TerrainUtils;
 
-public abstract class BaseEnemy : MonoBehaviour
+public abstract class BaseEnemy<T> : MonoBehaviour
 {
+    public const float DIST_GROUND = .55f;
+    public const float DIST_SIDE = .5f;
+
     public float health;
     public float contactDamage;
     public float invulnTimeMax;
 
-    private LayerMask playerHurtboxLayerMask;
-    private StateMachine<BaseEnemy> stateMachine = new StateMachine<BaseEnemy>();
-    private List<State<BaseEnemy>> states = new List<State<BaseEnemy>>();
+    protected LayerMask terrainMask;
+    protected LayerMask playerHurtboxLayerMask;
+    protected StateMachine<T> stateMachine = new StateMachine<T>();
+    protected List<State<T>> states = new List<State<T>>();
 
-    private float invulnTimeCurrent = 0f;
-    private bool invuln = false;
+    protected float invulnTimeCurrent = 0f;
+    protected bool invuln = false;
 
+    public Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+
+        terrainMask = LayerMask.GetMask("Terrain");
         playerHurtboxLayerMask = LayerMask.GetMask("PlayerHurtbox");
+
+        stateMachine.Initialize(states[(int)States.DEFAULT]);
+    }
+
+    private void applyInputAndTransitionStates()
+    {
+        int nextState;
+        do
+        {
+            nextState = stateMachine.CurrentState.HandleInput();
+            if (nextState != (int)States.NO_CHANGE)
+            {
+                stateMachine.ChangeState(states[(int)nextState]);
+            }
+        } while (false);//nextState != (int)States.NO_CHANGE);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!invuln)
-        {
-            //attempt to hurt player (check for overlap and collision
-        }
-        else
+        applyInputAndTransitionStates();
+        stateMachine.CurrentState.LogicUpdate();
+
+        if (invuln)
         {
             invulnTimeCurrent += Time.deltaTime;
             if (invulnTimeCurrent >= invulnTimeMax)
@@ -37,6 +60,11 @@ public abstract class BaseEnemy : MonoBehaviour
                 invuln = false;
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        stateMachine.CurrentState.PhysicsUpdate();
     }
 
     private void LateUpdate()
@@ -84,5 +112,14 @@ public abstract class BaseEnemy : MonoBehaviour
     public virtual void Defeat()
     {
         // stop state machine processing, activate defeated animation. Make sure have callback to perform cleanup when done.
+    }
+
+    public bool IsOnGround()
+    {
+        Debug.DrawRay(transform.position + new Vector3(DIST_SIDE, 0, 0), Vector2.down * DIST_GROUND, Color.green);
+        Debug.DrawRay(transform.position - new Vector3(DIST_SIDE, 0, 0), Vector2.down * DIST_GROUND, Color.green);
+        var hitLeft = Physics2D.Raycast(transform.position + new Vector3(DIST_SIDE, 0, 0), Vector2.down, DIST_GROUND, terrainMask);
+        var hitRight = Physics2D.Raycast(transform.position - new Vector3(DIST_SIDE, 0, 0), Vector2.down, DIST_GROUND, terrainMask);
+        return hitLeft.collider != null || hitRight.collider != null;
     }
 }

@@ -4,11 +4,11 @@ public class JumpState : AirState
 {
 	public JumpState(Player player, StateMachine<Player> stateMachine) : base(player, stateMachine) { }
 
-    public override PlayerStates HandleInput()
+    public override int HandleInput()
     {
         if(Input.GetButtonUp("Jump") || owner.rb.velocity.y <= 0)
         {
-            return PlayerStates.FALL;
+            return (int)PlayerStates.FALL;
         }
 
         return base.HandleInput();

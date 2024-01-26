@@ -4,17 +4,17 @@ public class RunState : GroundState
 {
 	public RunState(Player player, StateMachine<Player> stateMachine) : base(player, stateMachine) { }
 
-    public override PlayerStates HandleInput()
+    public override int HandleInput()
     {
         if(Input.GetButtonDown("Jump"))
         {
-            return PlayerStates.JUMP;
+            return (int)PlayerStates.JUMP;
         }
 
         var horizontalAxis = Input.GetAxis("Horizontal");
 		if (horizontalAxis == 0)
         {
-            return PlayerStates.STAND;
+            return (int)PlayerStates.STAND;
         }
         else // attempt facing switch
         {
