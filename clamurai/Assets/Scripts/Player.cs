@@ -5,13 +5,15 @@ public class Player : MonoBehaviour
 {
     public const float RUN_SPEED = 10f;
     public const float JUMP_SPEED = 10f;
-    public const float DIST_GROUND = .55f;
+    public const float DIST_GROUND = .05f;
     public const float DIST_SIDE = .5f;
     public const float FALL_YSPEED_CUTOFF = 3f;
 
     private StateMachine<Player> stateMachine = new StateMachine<Player>();
     private List<State<Player>> states = new List<State<Player>>();
     private LayerMask terrainMask;
+
+    private Animator animator;
 
     public Rigidbody2D rb;
     public bool on_ground = false;
@@ -21,6 +23,7 @@ public class Player : MonoBehaviour
     {
         terrainMask = LayerMask.GetMask("Terrain");
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         states.Add(new StandState(this, stateMachine));
         states.Add(new RunState(this, stateMachine));

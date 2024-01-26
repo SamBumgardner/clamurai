@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,11 +22,13 @@ public abstract class BaseEnemy<T> : MonoBehaviour
     protected bool invuln = false;
 
     public Rigidbody2D rb;
+    public BoxCollider2D collider;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        collider = GetComponent<BoxCollider2D>();
 
         terrainMask = LayerMask.GetMask("Terrain");
         playerHurtboxLayerMask = LayerMask.GetMask("PlayerHurtbox");
@@ -46,13 +49,33 @@ public abstract class BaseEnemy<T> : MonoBehaviour
         } while (nextState != (int)States.NO_CHANGE);
     }
 
+    public virtual void StartExtra()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
         applyInputAndTransitionStates();
         stateMachine.CurrentState.LogicUpdate();
 
-        if (invuln)
+        if (!invuln)
+        {
+            //attempt to hurt player (check for overlap and collision
+            var hitLeft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0, 0), Vector2.down, -0.5f, playerHurtboxLayerMask);
+            var hitRight = Physics2D.Raycast(transform.position - new Vector3(0.5f, 0, 0), Vector2.down, -0.5f, playerHurtboxLayerMask);
+            if (hitLeft.collider != null)
+            {
+                Destroy(hitLeft.collider.gameObject);
+            }
+
+            if (hitRight.collider != null)
+            {
+                Destroy(hitRight.collider.gameObject);
+            }
+        }
+        else
         {
             invulnTimeCurrent += Time.deltaTime;
             if (invulnTimeCurrent >= invulnTimeMax)
@@ -83,7 +106,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour
             // return color to normal
         }
     }
-    
+
     public void DamagingCollision(float damage)
     {
         if (!invuln) // if not invuln
@@ -93,7 +116,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour
             if (false)
             {
 
-            } 
+            }
             else
             {
                 // default behavior - or just have everything have a state to hand off to, that's probably better
@@ -116,10 +139,10 @@ public abstract class BaseEnemy<T> : MonoBehaviour
 
     public bool IsOnGround()
     {
-        Debug.DrawRay(transform.position + new Vector3(DIST_SIDE, 0, 0), Vector2.down * DIST_GROUND, Color.green);
-        Debug.DrawRay(transform.position - new Vector3(DIST_SIDE, 0, 0), Vector2.down * DIST_GROUND, Color.green);
-        var hitLeft = Physics2D.Raycast(transform.position + new Vector3(DIST_SIDE, 0, 0), Vector2.down, DIST_GROUND, terrainMask);
-        var hitRight = Physics2D.Raycast(transform.position - new Vector3(DIST_SIDE, 0, 0), Vector2.down, DIST_GROUND, terrainMask);
+        Debug.DrawRay(transform.position + new Vector3(DIST_SIDE * collider.size.x, 0, 0), Vector2.down * DIST_GROUND * collider.size.y, Color.green);
+        Debug.DrawRay(transform.position + new Vector3(-DIST_SIDE * collider.size.x, 0, 0), Vector2.down * DIST_GROUND * collider.size.y, Color.green);
+        var hitLeft = Physics2D.Raycast(transform.position + new Vector3(DIST_SIDE * collider.size.x, 0, 0), Vector2.down, DIST_GROUND * collider.size.y, terrainMask);
+        var hitRight = Physics2D.Raycast(transform.position - new Vector3(DIST_SIDE * collider.size.x, 0, 0), Vector2.down, DIST_GROUND * collider.size.y, terrainMask);
         return hitLeft.collider != null || hitRight.collider != null;
     }
 }
