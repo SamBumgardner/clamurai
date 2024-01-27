@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITriggerOwner
 {
     public const float RUN_SPEED = 10f;
     public const float JUMP_SPEED = 10f;
@@ -64,5 +64,24 @@ public class Player : MonoBehaviour
         var hitLeft = Physics2D.Raycast(transform.position + new Vector3(DIST_SIDE, 0, 0), Vector2.down, DIST_GROUND, terrainMask);
         var hitRight = Physics2D.Raycast(transform.position - new Vector3(DIST_SIDE, 0, 0), Vector2.down, DIST_GROUND, terrainMask);
         return hitLeft.collider != null || hitRight.collider != null;
+    }
+
+    public void TriggerOverlapOccurred(TriggerBoxType myTriggerType, Collider2D other)
+    {
+        if (myTriggerType == TriggerBoxType.HURTBOX)
+        {
+            var otherOverlapDetector = other.GetComponent<OverlapDetector>();
+            var damage = otherOverlapDetector.owner.GetCurrentDamageInflicted();
+            Debug.Log($"{gameObject.name}: Ouch, I'm going to take {damage} damage");
+        }
+        else
+        {
+            Debug.Log($"{gameObject.name}: Ha ha! I hit them for {GetCurrentDamageInflicted()} damage!");
+        }
+    }
+
+    public float GetCurrentDamageInflicted()
+    {
+        return 1;
     }
 }

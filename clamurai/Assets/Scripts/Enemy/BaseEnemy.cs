@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TerrainUtils;
 
-public abstract class BaseEnemy<T> : MonoBehaviour
+public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
 {
     public const float DIST_GROUND = .55f;
     public const float DIST_SIDE = .5f;
@@ -62,18 +62,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour
 
         if (!invuln)
         {
-            //attempt to hurt player (check for overlap and collision
-            var hitLeft = Physics2D.Raycast(transform.position + new Vector3(-0.5f, 0, 0), Vector2.down, -0.5f, playerHurtboxLayerMask);
-            var hitRight = Physics2D.Raycast(transform.position - new Vector3(0.5f, 0, 0), Vector2.down, -0.5f, playerHurtboxLayerMask);
-            if (hitLeft.collider != null)
-            {
-                Destroy(hitLeft.collider.gameObject);
-            }
-
-            if (hitRight.collider != null)
-            {
-                Destroy(hitRight.collider.gameObject);
-            }
+            // Attempt to hurt player?
         }
         else
         {
@@ -144,5 +133,24 @@ public abstract class BaseEnemy<T> : MonoBehaviour
         var hitLeft = Physics2D.Raycast(transform.position + new Vector3(DIST_SIDE * collider.size.x, 0, 0), Vector2.down, DIST_GROUND * collider.size.y, terrainMask);
         var hitRight = Physics2D.Raycast(transform.position - new Vector3(DIST_SIDE * collider.size.x, 0, 0), Vector2.down, DIST_GROUND * collider.size.y, terrainMask);
         return hitLeft.collider != null || hitRight.collider != null;
+    }
+
+    public void TriggerOverlapOccurred(TriggerBoxType myTriggerType, Collider2D other)
+    {
+        if (myTriggerType == TriggerBoxType.HURTBOX)
+        {
+            var otherOverlapDetector = other.GetComponent<OverlapDetector>();
+            var damage = otherOverlapDetector.owner.GetCurrentDamageInflicted();
+            Debug.Log($"{gameObject.name}: Ouch, I'm going to take {damage} damage");
+        }
+        else
+        {
+            Debug.Log($"{gameObject.name}: Ha ha! I hit them for {GetCurrentDamageInflicted()} damage!");
+        }
+    }
+
+    public float GetCurrentDamageInflicted()
+    {
+        return 2;
     }
 }
