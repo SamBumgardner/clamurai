@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
-public class Crab : BaseEnemy<Crab>
+public class Crab : BaseEnemy<Crab>, ISpawnable
 {
+    public event EventHandler GettingDestroyed;
+
     public int direction = 1;
 
     Crab()
@@ -15,5 +18,15 @@ public class Crab : BaseEnemy<Crab>
         var otherOverlapDetector = collision.GetComponent<OverlapDetector>();
         var damage = otherOverlapDetector.owner.GetCurrentDamageInflicted();
         Debug.Log($"{gameObject.name}: Ouch, I'm going to take {damage} damage");
+    }
+
+    public void initialize(params object[] args)
+    {
+        direction = (int)args[0];
+    }
+
+    public void OnDestroy()
+    {
+        GettingDestroyed(this, null);
     }
 }
