@@ -10,14 +10,6 @@ public class Crab : BaseEnemy<Crab>
         states.Add(new CrabFallState(this, stateMachine));
     }
 
-    void OnCollisionStay2D(Collision2D other)
-    {
-        if (rb.velocity.x == 0)
-        {
-            direction *= -1;
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var otherOverlapDetector = collision.GetComponent<OverlapDetector>();

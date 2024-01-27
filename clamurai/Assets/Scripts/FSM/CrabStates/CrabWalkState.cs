@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CrabWalkState : State<Crab>
 {
-    public CrabWalkState(Crab crab, StateMachine<Crab> stateMachine) : base(crab, stateMachine) { }
+    public CrabWalkState(Crab crab, StateMachine<Crab> stateMachine) : base(crab, stateMachine) {}
 
     private const float WALK_SPEED = 3;
-    private int direction = 1;
+    private float WALL_BUMP_DISTANCE = Crab.DIST_SIDE + .05f;
 
     public override int HandleInput()
     {
@@ -20,6 +20,13 @@ public class CrabWalkState : State<Crab>
 
     public override void PhysicsUpdate()
     {
+        // Check if bumping wall and should turn around
+        Debug.DrawRay(owner.transform.position, Vector2.right * owner.direction * WALL_BUMP_DISTANCE, Color.cyan);
+        if (Physics2D.Raycast(owner.transform.position, Vector2.right * owner.direction, WALL_BUMP_DISTANCE, layerMask: owner.terrainMask).collider != null)
+        {
+            owner.direction *= -1;
+        }
+
         owner.rb.velocity = new Vector2(WALK_SPEED * owner.direction, 0);
         base.PhysicsUpdate();
     }

@@ -6,7 +6,7 @@ public class Player : MonoBehaviour, ITriggerOwner
     public const float RUN_SPEED = 10f;
     public const float JUMP_SPEED = 10f;
     public const float DIST_GROUND = .05f;
-    public const float DIST_SIDE = .5f;
+    public const float DIST_SIDE = .25f;
     public const float FALL_YSPEED_CUTOFF = 3f;
 
     private StateMachine<Player> stateMachine = new StateMachine<Player>();

@@ -13,7 +13,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public float contactDamage;
     public float invulnTimeMax;
 
-    protected LayerMask terrainMask;
+    public LayerMask terrainMask;
     protected LayerMask playerHurtboxLayerMask;
     protected StateMachine<T> stateMachine = new StateMachine<T>();
     protected List<State<T>> states = new List<State<T>>();
