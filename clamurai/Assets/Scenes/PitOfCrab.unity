@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3959589937767879010, guid: 5149a3f4b9c4e654b81ae01bbd8f18f2, type: 3}
       propertyPath: max_spawn_count
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3959589937767879010, guid: 5149a3f4b9c4e654b81ae01bbd8f18f2, type: 3}
       propertyPath: maxDistanceFromCamera.x
