@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseSpawner : MonoBehaviour 
@@ -10,7 +12,7 @@ public class BaseSpawner : MonoBehaviour
     public float spawn_cooldown = 2;
 
     public float remaining_cooldown = 0;
-    private List<GameObject> spawned_objects = new List<GameObject>();
+    public int live_spawn_count = 0;
 
     protected GameObject playerRef;
     protected GameObject mainCameraRef;
@@ -38,16 +40,23 @@ public class BaseSpawner : MonoBehaviour
 
     protected virtual bool CanSpawn()
     {
-        return (max_spawn_count == -1 || (max_spawn_count > -1 && spawned_objects.Count < max_spawn_count))
+        return (max_spawn_count == -1 || (max_spawn_count > -1 && live_spawn_count < max_spawn_count))
             && remaining_cooldown <= 0;
     }
 
     private void Spawn()
     {
         var newlySpawnedObj = Instantiate(recipe.objectToSpawn, transform.position, Quaternion.identity);
-        recipe.InitializeSpawnableComponent(newlySpawnedObj);
-        spawned_objects.Add(newlySpawnedObj);
+        var spawnableComponent = recipe.InitializeSpawnableComponent(newlySpawnedObj);
+        live_spawn_count++;
+        spawnableComponent.GettingDestroyed += onSpawnedComponentDestroyed;
         remaining_cooldown += spawn_cooldown;
+    }
+
+    public void onSpawnedComponentDestroyed(object sender, EventArgs e)
+    {
+        live_spawn_count--;
+        ((ISpawnable)sender).GettingDestroyed -= onSpawnedComponentDestroyed;
     }
 
     private void OnDrawGizmos()

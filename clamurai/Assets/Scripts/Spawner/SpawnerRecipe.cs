@@ -8,10 +8,11 @@ public class SpawnerRecipe<T> : MonoBehaviour, ISpawnerRecipe where T : ISpawnab
 
     GameObject ISpawnerRecipe.objectToSpawn { get => objectToSpawn; }
 
-    public void InitializeSpawnableComponent(GameObject objectContainingSpawnable)
+    public ISpawnable InitializeSpawnableComponent(GameObject objectContainingSpawnable)
     {
         var spawnableComponent = objectContainingSpawnable.GetComponent<T>();
         spawnableComponent.initialize(BuildInitParams());
+        return spawnableComponent;
     }
 
     protected virtual object[] BuildInitParams()

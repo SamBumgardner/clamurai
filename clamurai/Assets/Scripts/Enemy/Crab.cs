@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Crab : BaseEnemy<Crab>, ISpawnable
 {
+    public event EventHandler GettingDestroyed;
+
     public int direction = 1;
 
     Crab()
@@ -20,5 +23,10 @@ public class Crab : BaseEnemy<Crab>, ISpawnable
     public void initialize(params object[] args)
     {
         direction = (int)args[0];
+    }
+
+    public void OnDestroy()
+    {
+        GettingDestroyed(this, null);
     }
 }
