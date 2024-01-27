@@ -9,7 +9,7 @@ public class BaseSpawner : MonoBehaviour
     public int max_spawn_count = 3;
     public float spawn_cooldown = 2;
 
-    private float remaining_cooldown = 0;
+    public float remaining_cooldown = 0;
     private List<GameObject> spawned_objects = new List<GameObject>();
 
     protected GameObject playerRef;
@@ -52,12 +52,12 @@ public class BaseSpawner : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (Application.isPlaying) { 
+        if (Application.isPlaying && enabled) {
             if (CanSpawn())
             {
                 Gizmos.color = Color.green;
             }
-            else if (remaining_cooldown >= 0)
+            else if (remaining_cooldown > 0)
             {
                 Gizmos.color = Color.yellow;
             }
@@ -65,7 +65,8 @@ public class BaseSpawner : MonoBehaviour
             {
                 Gizmos.color = Color.gray;
             }
-        } else
+        }
+        else
         {
             Gizmos.color = Color.gray;
         }
