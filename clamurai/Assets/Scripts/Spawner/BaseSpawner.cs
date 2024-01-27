@@ -49,4 +49,29 @@ public class BaseSpawner : MonoBehaviour
         spawned_objects.Add(newlySpawnedObj);
         remaining_cooldown += spawn_cooldown;
     }
+
+    private void OnDrawGizmos()
+    {
+        if (Application.isPlaying) { 
+            if (CanSpawn())
+            {
+                Gizmos.color = Color.green;
+            }
+            else if (remaining_cooldown >= 0)
+            {
+                Gizmos.color = Color.yellow;
+            }
+            else
+            {
+                Gizmos.color = Color.gray;
+            }
+        } else
+        {
+            Gizmos.color = Color.gray;
+        }
+        Gizmos.DrawSphere(transform.position, .25f);
+        ChildDrawGizmos();
+    }
+
+    protected virtual void ChildDrawGizmos() {}
 }

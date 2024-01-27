@@ -1,9 +1,10 @@
 using System;
+using UnityEngine;
 
 public class JustOffScreenSpawner : BaseSpawner
 {
-    public float minDistanceFromCamera = 5;
-    public float okBufferDistance = 2;
+    public Vector2 minDistanceFromCamera = new Vector2(5, 20);
+    public Vector2 maxDistanceFromCamera = new Vector2(10, 20);
     public CheckDirection checkDirection = CheckDirection.LEFT;
 
 
@@ -19,7 +20,7 @@ public class JustOffScreenSpawner : BaseSpawner
             horizontalDistanceFromCamera = Math.Abs(horizontalDistanceFromCamera);
         }
 
-        if ( horizontalDistanceFromCamera > minDistanceFromCamera && horizontalDistanceFromCamera < minDistanceFromCamera + okBufferDistance)
+        if ( horizontalDistanceFromCamera > minDistanceFromCamera.x && horizontalDistanceFromCamera < maxDistanceFromCamera.x)
         {
             return base.CanSpawn();
         }
@@ -31,5 +32,13 @@ public class JustOffScreenSpawner : BaseSpawner
         LEFT, 
         RIGHT,
         BOTH
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, new Vector3(maxDistanceFromCamera.x * 2, maxDistanceFromCamera.y * 2));
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector3(minDistanceFromCamera.x * 2, minDistanceFromCamera.y * 2));
     }
 }

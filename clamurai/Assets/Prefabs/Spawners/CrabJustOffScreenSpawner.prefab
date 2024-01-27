@@ -47,8 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_spawn_count: 3
   spawn_cooldown: 2
-  minDistanceFromCamera: 10
-  okBufferDistance: 5
+  minDistanceFromCameraX: 5
+  okBufferDistanceX: 2
+  minDistanceFromCameraY: 20
+  okBufferDistanceY: 0
   checkDirection: 0
 --- !u!114 &7040648091606571365
 MonoBehaviour:
