@@ -12,13 +12,15 @@ public class BaseSpawner : MonoBehaviour
     private float remaining_cooldown = 0;
     private List<GameObject> spawned_objects = new List<GameObject>();
 
-    //private GameObject playerRef;
+    protected GameObject playerRef;
+    protected GameObject mainCameraRef;
 
     // Start is called before the first frame update
     void Start()
     {
-        //playerRef = GameObject.FindWithTag("Player");
-        recipe = GetComponent<CrabRecipe>();
+        playerRef = GameObject.FindWithTag("Player");
+        mainCameraRef = GameObject.FindWithTag("MainCamera");
+        recipe = GetComponent<ISpawnerRecipe>();
     }
 
     // Update is called once per frame
@@ -28,19 +30,19 @@ public class BaseSpawner : MonoBehaviour
         {
             remaining_cooldown -= Time.deltaTime;
         }
-        else if (can_spawn())
+        else if (CanSpawn())
         {
-            spawn();
+            Spawn();
         }      
     }
 
-    protected virtual bool can_spawn()
+    protected virtual bool CanSpawn()
     {
-        return (max_spawn_count > -1 && spawned_objects.Count < max_spawn_count) 
+        return (max_spawn_count == -1 || (max_spawn_count > -1 && spawned_objects.Count < max_spawn_count))
             && remaining_cooldown <= 0;
     }
 
-    private void spawn()
+    private void Spawn()
     {
         var newlySpawnedObj = Instantiate(recipe.objectToSpawn, transform.position, Quaternion.identity);
         recipe.InitializeSpawnableComponent(newlySpawnedObj);
