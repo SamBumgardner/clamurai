@@ -9,7 +9,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public const float DIST_GROUND = .55f;
     public const float DIST_SIDE = .5f;
 
-    public float health;
+    public float health = 1;
     public float contactDamage;
     public float invulnTimeMax;
 
@@ -22,13 +22,15 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     protected bool invuln = false;
 
     public Rigidbody2D rb;
-    public BoxCollider2D collider;
+    public BoxCollider2D terrainCollider;
+    public SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
+        terrainCollider = GetComponent<BoxCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         terrainMask = LayerMask.GetMask("Terrain");
         playerHurtboxLayerMask = LayerMask.GetMask("PlayerHurtbox");
@@ -84,15 +86,19 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         if (health <= 0)
         {
             // enemy defeated, blow em up
+            Destroy(gameObject);
         }
 
         if (invuln)
         {
             // dim color to grey if not already
+            spriteRenderer.color = Color.gray;
+            
         }
         else
         {
             // return color to normal
+            spriteRenderer.color = Color.white;
         }
     }
 
@@ -128,10 +134,10 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
 
     public bool IsOnGround()
     {
-        Debug.DrawRay(transform.position + new Vector3(DIST_SIDE * collider.size.x, 0, 0), Vector2.down * DIST_GROUND * collider.size.y, Color.green);
-        Debug.DrawRay(transform.position + new Vector3(-DIST_SIDE * collider.size.x, 0, 0), Vector2.down * DIST_GROUND * collider.size.y, Color.green);
-        var hitLeft = Physics2D.Raycast(transform.position + new Vector3(DIST_SIDE * collider.size.x, 0, 0), Vector2.down, DIST_GROUND * collider.size.y, terrainMask);
-        var hitRight = Physics2D.Raycast(transform.position - new Vector3(DIST_SIDE * collider.size.x, 0, 0), Vector2.down, DIST_GROUND * collider.size.y, terrainMask);
+        Debug.DrawRay(transform.position + new Vector3(DIST_SIDE * terrainCollider.size.x, 0, 0), Vector2.down * DIST_GROUND * terrainCollider.size.y, Color.green);
+        Debug.DrawRay(transform.position + new Vector3(-DIST_SIDE * terrainCollider.size.x, 0, 0), Vector2.down * DIST_GROUND * terrainCollider.size.y, Color.green);
+        var hitLeft = Physics2D.Raycast(transform.position + new Vector3(DIST_SIDE * terrainCollider.size.x, 0, 0), Vector2.down, DIST_GROUND * terrainCollider.size.y, terrainMask);
+        var hitRight = Physics2D.Raycast(transform.position - new Vector3(DIST_SIDE * terrainCollider.size.x, 0, 0), Vector2.down, DIST_GROUND * terrainCollider.size.y, terrainMask);
         return hitLeft.collider != null || hitRight.collider != null;
     }
 
@@ -141,6 +147,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         {
             var otherOverlapDetector = other.GetComponent<OverlapDetector>();
             var damage = otherOverlapDetector.owner.GetCurrentDamageInflicted();
+            Hurt(damage);
             Debug.Log($"{gameObject.name}: Ouch, I'm going to take {damage} damage");
         }
         else

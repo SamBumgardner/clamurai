@@ -12,12 +12,18 @@ public class Player : MonoBehaviour, ITriggerOwner
     private StateMachine<Player> stateMachine = new StateMachine<Player>();
     private List<State<Player>> states = new List<State<Player>>();
     private LayerMask terrainMask;
-
     private Animator animator;
+
+    private AttackHandler standSlash;
+    private AttackHandler airSlash;
 
     public Rigidbody2D rb;
     public bool on_ground = false;
     public string animationToPlay = null;
+
+    private LastAttackType lastAttackType = LastAttackType.NONE;
+    private float attackCooldownMax = 1f;
+    private float attackCooldown = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +37,10 @@ public class Player : MonoBehaviour, ITriggerOwner
         states.Add(new JumpState(this, stateMachine));
         states.Add(new FallState(this, stateMachine));
         stateMachine.Initialize(states[(int)PlayerStates.STAND]);
+
+        var attackHandlers = gameObject.GetComponentsInChildren<AttackHandler>();
+        standSlash = attackHandlers[0];
+        airSlash = attackHandlers[1];
     }
 
     private void applyInputAndTransitionStates()
@@ -51,6 +61,7 @@ public class Player : MonoBehaviour, ITriggerOwner
     {
         applyInputAndTransitionStates();
         stateMachine.CurrentState.LogicUpdate();
+        AttemptAttack();
     }
 
     private void FixedUpdate()
@@ -64,6 +75,34 @@ public class Player : MonoBehaviour, ITriggerOwner
         {
             animator.Play(animationToPlay);
             animationToPlay = null;
+        }
+    }
+
+    public void AttemptAttack()
+    {
+        if (attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            bool attackOnCooldown = attackCooldown > 0;
+
+            if (stateMachine.CurrentState is GroundState
+                && (lastAttackType != LastAttackType.STAND || !attackOnCooldown))
+            {
+                standSlash.StartAttack();
+                lastAttackType = LastAttackType.STAND;
+                attackCooldown = attackCooldownMax;
+            }
+            else if (stateMachine.CurrentState is AirState
+                && (lastAttackType != LastAttackType.AIR || !attackOnCooldown))
+            {
+                airSlash.StartAttack();
+                lastAttackType = LastAttackType.AIR;
+                attackCooldown = attackCooldownMax;
+            }
         }
     }
 
@@ -93,5 +132,12 @@ public class Player : MonoBehaviour, ITriggerOwner
     public float GetCurrentDamageInflicted()
     {
         return 1;
+    }
+
+    enum LastAttackType
+    {
+        NONE,
+        STAND,
+        AIR,
     }
 }
