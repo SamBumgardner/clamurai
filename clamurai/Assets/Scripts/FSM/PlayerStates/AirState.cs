@@ -1,9 +1,22 @@
+using UnityEngine;
+
 public class AirState : State<Player>
 {
 	protected AirState(Player player, StateMachine<Player> stateMachine) : base(player, stateMachine) { }
 
     public override int HandleInput()
     {
+        float horizontalAxis = Input.GetAxis("Horizontal");
+        owner.rb.velocity = new Vector2(Player.RUN_SPEED * horizontalAxis, owner.rb.velocity.y);
+
+        if (horizontalAxis != 0.0f)
+        {
+            var newXScale = horizontalAxis > 0 ? 1 : -1;
+            var scale = owner.transform.localScale;
+            scale.x = newXScale;
+            owner.transform.localScale = scale;
+        }
+        
         if (owner.tookDamage)
         {
             return (int)PlayerStates.HURT;
