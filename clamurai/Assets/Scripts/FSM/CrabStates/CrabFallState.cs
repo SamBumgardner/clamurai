@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CrabFallState : State<Crab>
+public class CrabFallState : CrabBaseState
 {
     public CrabFallState(Crab crab, StateMachine<Crab> stateMachine) : base(crab, stateMachine) { }
 

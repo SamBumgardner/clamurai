@@ -11,6 +11,7 @@ public class Crab : BaseEnemy<Crab>, ISpawnable
     {
         states.Add(new CrabWalkState(this, stateMachine));
         states.Add(new CrabFallState(this, stateMachine));
+        states.Add(new CrabHurtState(this, stateMachine));
     }
 
     public void initialize(params object[] args)

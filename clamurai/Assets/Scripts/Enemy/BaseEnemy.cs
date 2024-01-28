@@ -1,13 +1,14 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TerrainUtils;
 
 public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
 {
     public const float DIST_GROUND = .55f;
     public const float DIST_SIDE = .5f;
+
+    public bool tookDamage = false; // Should trigger transition to hurt state
+    public Vector2 standardKnockback = new Vector2(1, 2);
+    public Vector2 knockbackToApply;
 
     public float health = 1;
     public float contactDamage;
@@ -108,7 +109,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         }
     }
 
-    public void DamagingCollision(float damage)
+    public void DamagingCollision(float damage, float knockbackDirection)
     {
         if (!invuln) // if not invuln
         {
@@ -121,20 +122,22 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
             else
             {
                 // default behavior - or just have everything have a state to hand off to, that's probably better
-                Hurt(damage);
+                Hurt(damage, knockbackDirection);
             }
         }
     }
 
-    public virtual void Hurt(float damage)
+    public virtual void Hurt(float damage, float knockbackDirection)
     {
         health -= damage;
+        tookDamage = true;
         invuln = true;
         foreach (var overlapDetector in overlapDetectors)
         {
             overlapDetector.DisableCollision();
         }
         invulnTimeCurrent = 0;
+        knockbackToApply = new Vector2(standardKnockback.x * knockbackDirection, standardKnockback.y);
     }
 
     public virtual void Defeat()
@@ -157,7 +160,9 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         {
             var otherOverlapDetector = other.GetComponent<OverlapDetector>();
             var damage = otherOverlapDetector.owner.GetCurrentDamageInflicted();
-            DamagingCollision(damage);
+            var knockbackDirection = other.transform.position.x > transform.position.x ? -1 : 1;
+
+            DamagingCollision(damage, knockbackDirection);
         }
         else
         {
