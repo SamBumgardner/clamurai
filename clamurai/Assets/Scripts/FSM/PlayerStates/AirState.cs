@@ -16,6 +16,11 @@ public class AirState : State<Player>
             scale.x = newXScale;
             owner.transform.localScale = scale;
         }
+        
+        if (owner.tookDamage)
+        {
+            return (int)PlayerStates.HURT;
+        }
 
         // Velocity check makes sure this doesn't glue player back to ground when starting jump
         // Value doesn't matter too much, just check its positive and somewhat larger than 0.

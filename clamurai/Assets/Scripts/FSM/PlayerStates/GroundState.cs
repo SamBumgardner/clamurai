@@ -4,6 +4,11 @@ public class GroundState : State<Player>
 
     public override int HandleInput()
     {
+        if (owner.tookDamage)
+        {
+            return (int)PlayerStates.HURT;
+        }
+
         // If player isn't touching the ground, change state to falling.
         if (!owner.IsOnGround())
         {

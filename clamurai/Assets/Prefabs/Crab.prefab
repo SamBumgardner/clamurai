@@ -173,11 +173,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db6994f19bd8fb458b4db652f7cc52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 2
   contactDamage: 1
   invulnTimeMax: 1
+  terrainMask:
+    serializedVersion: 2
+    m_Bits: 0
   rb: {fileID: 0}
-  collider: {fileID: 0}
+  terrainCollider: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   direction: 1
 --- !u!1 &5334751326326790835
 GameObject:

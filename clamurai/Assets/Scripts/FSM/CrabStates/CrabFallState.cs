@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CrabFallState : State<Crab>
+public class CrabFallState : CrabBaseState
 {
     public CrabFallState(Crab crab, StateMachine<Crab> stateMachine) : base(crab, stateMachine) { }
 
@@ -17,7 +17,6 @@ public class CrabFallState : State<Crab>
 
     public override void Enter()
     {
-        owner.GetComponent<SpriteRenderer>().color = Color.yellow;
         base.Enter();
     }
 }
