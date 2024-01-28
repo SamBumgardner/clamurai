@@ -713,6 +713,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   on_ground: 0
   animationToPlay: 
+  hurtKnockback: {x: 0, y: 0}
+  tookDamage: 0
 --- !u!95 &7954813971579281565
 Animator:
   serializedVersion: 5

@@ -8,11 +8,17 @@ public class Player : MonoBehaviour, ITriggerOwner
     public const float DIST_GROUND = 1.05f;
     public const float DIST_SIDE = .4f;
     public const float FALL_YSPEED_CUTOFF = 3f;
+    public static Vector2 HURT_KNOCKBACK = new Vector2(1, 2);
+
+    public float healthMax = 10;
+    public float health;
 
     private StateMachine<Player> stateMachine = new StateMachine<Player>();
     private List<State<Player>> states = new List<State<Player>>();
     private LayerMask terrainMask;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    protected OverlapDetector hurtboxOverlapDetector;
 
     private AttackHandler standSlash;
     private AttackHandler airSlash;
@@ -25,22 +31,33 @@ public class Player : MonoBehaviour, ITriggerOwner
     private float attackCooldownMax = 1f;
     private float attackCooldown = 0;
 
+    public float invulnTimeMax = 2;
+    protected float invulnTimeCurrent = 0f;
+    protected bool invuln = false;
+    public Vector2 hurtKnockback = Vector2.zero;
+    public bool tookDamage = false;
+
     // Start is called before the first frame update
     void Start()
     {
         terrainMask = LayerMask.GetMask("Terrain");
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        hurtboxOverlapDetector = GetComponentInChildren<OverlapDetector>();
 
         states.Add(new StandState(this, stateMachine));
         states.Add(new RunState(this, stateMachine));
         states.Add(new JumpState(this, stateMachine));
         states.Add(new FallState(this, stateMachine));
+        states.Add(new HurtState(this, stateMachine));
         stateMachine.Initialize(states[(int)PlayerStates.STAND]);
 
         var attackHandlers = gameObject.GetComponentsInChildren<AttackHandler>();
         standSlash = attackHandlers[0];
         airSlash = attackHandlers[1];
+
+        health = healthMax;
     }
 
     private void applyInputAndTransitionStates()
@@ -62,6 +79,15 @@ public class Player : MonoBehaviour, ITriggerOwner
         applyInputAndTransitionStates();
         stateMachine.CurrentState.LogicUpdate();
         AttemptAttack();
+        if (invuln)
+        {
+            invulnTimeCurrent += Time.deltaTime;
+            if (invulnTimeCurrent >= invulnTimeMax)
+            {
+                invuln = false;
+                hurtboxOverlapDetector.EnableCollision();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -75,6 +101,17 @@ public class Player : MonoBehaviour, ITriggerOwner
         {
             animator.Play(animationToPlay);
             animationToPlay = null;
+        }
+        if (invuln)
+        {
+            // dim color to grey if not already
+            spriteRenderer.color = Color.gray;
+
+        }
+        else
+        {
+            // return color to normal
+            spriteRenderer.color = Color.white;
         }
     }
 
@@ -121,12 +158,25 @@ public class Player : MonoBehaviour, ITriggerOwner
         {
             var otherOverlapDetector = other.GetComponent<OverlapDetector>();
             var damage = otherOverlapDetector.owner.GetCurrentDamageInflicted();
-            Debug.Log($"{gameObject.name}: Ouch, I'm going to take {damage} damage");
+            var knockbackDirection = other.transform.position.x > transform.position.x ? -1 : 1;
+
+            Hurt(damage, knockbackDirection);
         }
         else
         {
-            Debug.Log($"{gameObject.name}: Ha ha! I hit them for {GetCurrentDamageInflicted()} damage!");
+            // Trigger on-hit effects here
         }
+    }
+
+    public virtual void Hurt(float damage, float knockbackDirection)
+    {
+        health -= damage;
+        tookDamage = true;
+        invuln = true;
+        hurtboxOverlapDetector.DisableCollision();
+        invulnTimeCurrent = 0;
+
+        hurtKnockback = new Vector2(HURT_KNOCKBACK.x * knockbackDirection, HURT_KNOCKBACK.y);
     }
 
     public float GetCurrentDamageInflicted()
