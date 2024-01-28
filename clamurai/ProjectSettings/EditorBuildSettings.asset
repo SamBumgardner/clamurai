@@ -5,13 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: ba283ff62a910b54f8d735327c8ae559
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: b2841f433f2c25a4ba02117d72ba50a3
+  - enabled: 1
     path: Assets/Scenes/TilemapTestScene.unity
     guid: 4628a8cc807ea004eaa6a04eafe06c23
   - enabled: 1
     path: Assets/Scenes/PitOfCrab.unity
     guid: db6bff2feb3c67342bcac689af7bf06d
+  - enabled: 1
+    path: Assets/Scenes/SandPillar.unity
+    guid: 1d10a35db399a724780a35752dd27aec
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
