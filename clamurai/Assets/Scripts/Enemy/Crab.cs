@@ -13,13 +13,6 @@ public class Crab : BaseEnemy<Crab>, ISpawnable
         states.Add(new CrabFallState(this, stateMachine));
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        var otherOverlapDetector = collision.GetComponent<OverlapDetector>();
-        var damage = otherOverlapDetector.owner.GetCurrentDamageInflicted();
-        Debug.Log($"{gameObject.name}: Ouch, I'm going to take {damage} damage");
-    }
-
     public void initialize(params object[] args)
     {
         direction = (int)args[0];

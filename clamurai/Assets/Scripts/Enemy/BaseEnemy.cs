@@ -24,6 +24,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public Rigidbody2D rb;
     public BoxCollider2D terrainCollider;
     public SpriteRenderer spriteRenderer;
+    protected OverlapDetector[] overlapDetectors;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         rb = GetComponent<Rigidbody2D>();
         terrainCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        overlapDetectors = GetComponentsInChildren<OverlapDetector>();
 
         terrainMask = LayerMask.GetMask("Terrain");
         playerHurtboxLayerMask = LayerMask.GetMask("PlayerHurtbox");
@@ -72,6 +74,10 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
             if (invulnTimeCurrent >= invulnTimeMax)
             {
                 invuln = false;
+                foreach (var overlapDetector in overlapDetectors)
+                {
+                    overlapDetector.EnableCollision();
+                }
             }
         }
     }
@@ -124,6 +130,10 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     {
         health -= damage;
         invuln = true;
+        foreach (var overlapDetector in overlapDetectors)
+        {
+            overlapDetector.DisableCollision();
+        }
         invulnTimeCurrent = 0;
     }
 
@@ -147,8 +157,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         {
             var otherOverlapDetector = other.GetComponent<OverlapDetector>();
             var damage = otherOverlapDetector.owner.GetCurrentDamageInflicted();
-            Hurt(damage);
-            Debug.Log($"{gameObject.name}: Ouch, I'm going to take {damage} damage");
+            DamagingCollision(damage);
         }
         else
         {
@@ -158,6 +167,6 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
 
     public float GetCurrentDamageInflicted()
     {
-        return 2;
+        return contactDamage;
     }
 }
