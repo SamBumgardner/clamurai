@@ -4,6 +4,11 @@ public class AirState : State<Player>
 
     public override int HandleInput()
     {
+        if (owner.tookDamage)
+        {
+            return (int)PlayerStates.HURT;
+        }
+
         // Velocity check makes sure this doesn't glue player back to ground when starting jump
         // Value doesn't matter too much, just check its positive and somewhat larger than 0.
         if (owner.IsOnGround() && owner.rb.velocity.y <= 1) 

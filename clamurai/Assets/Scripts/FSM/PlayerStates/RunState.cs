@@ -35,7 +35,7 @@ public class RunState : GroundState
 
     public override void Enter()
     {
-        owner.GetComponent<SpriteRenderer>().color = Color.blue;
+        owner.animationToPlay = "run";
         base.Enter();
     }
 }
