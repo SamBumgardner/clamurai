@@ -93,7 +93,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -104,7 +104,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.6}
+  m_Size: {x: 0.4, y: 1.4}
   m_EdgeRadius: 0
 --- !u!114 &882828962994077469
 MonoBehaviour:
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 2721653249356133673}
   - component: {fileID: 6486882135306670877}
   - component: {fileID: 5839810924253580205}
-  - component: {fileID: 2720099175062639768}
+  - component: {fileID: 7954813971579281565}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -149,8 +149,8 @@ Transform:
   m_GameObject: {fileID: 9018844121111894789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.27, y: 2.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 325537916987743}
@@ -197,7 +197,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2339544397565369244, guid: 87213b705105f9b4a872e731573e6931, type: 3}
+  m_Sprite: {fileID: 184831686, guid: 99c56ffb498b6fd4fb40fa18912410f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,18 +240,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4666667, y: 0}
-    oldSize: {x: 0.9375, y: 0.9375}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 0.796875, y: 0.953125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.8}
+  m_Size: {x: 0.8, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &6486882135306670877
 Rigidbody2D:
@@ -294,7 +294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   on_ground: 0
---- !u!95 &2720099175062639768
+  animationToPlay: 
+--- !u!95 &7954813971579281565
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

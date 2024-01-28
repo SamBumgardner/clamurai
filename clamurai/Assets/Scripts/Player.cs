@@ -5,8 +5,8 @@ public class Player : MonoBehaviour, ITriggerOwner
 {
     public const float RUN_SPEED = 10f;
     public const float JUMP_SPEED = 10f;
-    public const float DIST_GROUND = .05f;
-    public const float DIST_SIDE = .25f;
+    public const float DIST_GROUND = 1.05f;
+    public const float DIST_SIDE = .4f;
     public const float FALL_YSPEED_CUTOFF = 3f;
 
     private StateMachine<Player> stateMachine = new StateMachine<Player>();
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour, ITriggerOwner
 
     public Rigidbody2D rb;
     public bool on_ground = false;
+    public string animationToPlay = null;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,15 @@ public class Player : MonoBehaviour, ITriggerOwner
     private void FixedUpdate()
     {
         stateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    private void LateUpdate()
+    {
+        if (animationToPlay != null)
+        {
+            animator.Play(animationToPlay);
+            animationToPlay = null;
+        }
     }
 
     public bool IsOnGround()

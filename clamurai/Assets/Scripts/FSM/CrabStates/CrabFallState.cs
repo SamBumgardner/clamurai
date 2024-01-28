@@ -17,7 +17,6 @@ public class CrabFallState : State<Crab>
 
     public override void Enter()
     {
-        owner.GetComponent<SpriteRenderer>().color = Color.yellow;
         base.Enter();
     }
 }

@@ -33,7 +33,6 @@ public class CrabWalkState : State<Crab>
 
     public override void Enter()
     {
-        owner.GetComponent<SpriteRenderer>().color = Color.blue;
         base.Enter();
     }
 }

@@ -28,7 +28,7 @@ public class StandState : GroundState
 
     public override void Enter()
     {
-        owner.GetComponent<SpriteRenderer>().color = Color.red;
+        owner.animationToPlay = "stand";
         base.Enter();
     }
 }
