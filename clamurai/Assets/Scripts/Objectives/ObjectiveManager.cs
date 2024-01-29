@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ObjectiveManager : MonoBehaviour
 {
+    public string NextScene = string.Empty;
     List<bool> objectiveCompletionStatus = new List<bool>();
 
     private void Start()
@@ -25,10 +27,25 @@ public class ObjectiveManager : MonoBehaviour
         // can use args.Progress here to update information too for partial progress.
         // update HUD information (or send relevant events, whatever's fine).
 
-        if (objectiveCompletionStatus.All(status => status)) // if every item in list is true:
+        if (IsLevelComplete())
         {
-            // trigger game completion!
-            print("Objectives Complete! Go have a snack.");
+            LevelFinished();
+        }
+    }
+
+    private bool IsLevelComplete()
+    {
+        // Returns true if all completionStatus entries are true.
+        return objectiveCompletionStatus.All(status => status);
+    }
+
+    private void LevelFinished()
+    {
+        // Better to trigger some kind of fanfare here, probably.
+        // This works fine from a functionality perspective though.
+        if (!string.IsNullOrEmpty(NextScene))
+        {
+            SceneManager.LoadScene(NextScene);
         }
     }
 }
