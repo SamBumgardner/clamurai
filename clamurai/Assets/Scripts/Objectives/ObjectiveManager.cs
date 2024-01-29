@@ -11,7 +11,7 @@ public class ObjectiveManager : MonoBehaviour
     private void Start()
     {
         var objectives = GameObject.FindGameObjectsWithTag("Objective");
-        for (var i = 0 ; i < objectives.Length; i++)
+        for (var i = 0; i < objectives.Length; i++)
         {
             var objectiveComponent = objectives[i].GetComponent<IObjective>();
             objectiveComponent.ObjectiveStatusChange += OnObjectiveStatusChange;
@@ -21,7 +21,7 @@ public class ObjectiveManager : MonoBehaviour
         print($"Setup complete for {objectiveCompletionStatus.Count} objectives.");
     }
 
-    public void OnObjectiveStatusChange(object sender, ObjectiveStatusChangeEventArgs args) 
+    public void OnObjectiveStatusChange(object sender, ObjectiveStatusChangeEventArgs args)
     {
         objectiveCompletionStatus[args.ObjectiveID] = args.IsComplete;
         // can use args.Progress here to update information too for partial progress.
@@ -37,6 +37,11 @@ public class ObjectiveManager : MonoBehaviour
     {
         // Returns true if all completionStatus entries are true.
         return objectiveCompletionStatus.All(status => status);
+    }
+
+    public int GetRemainingStatusCount()
+    {
+        return objectiveCompletionStatus.Count(status => !status);
     }
 
     private void LevelFinished()
