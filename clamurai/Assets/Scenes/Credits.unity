@@ -495,7 +495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -48, y: 40}
+  m_AnchoredPosition: {x: -71.5, y: 71.5}
   m_SizeDelta: {x: 794.11, y: 44.330017}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861097197
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Enter to Play Again
+  m_text: "Press Enter \nto Play Again"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
   m_sharedMaterial: {fileID: 362191974226498700, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
