@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class RunState : GroundState
@@ -29,7 +30,20 @@ public class RunState : GroundState
 
     public override void PhysicsUpdate()
     {
-        owner.rb.velocity = new Vector2(Player.RUN_SPEED * Input.GetAxis("Horizontal"), 0);
+        
+        var horizontalAxis = Input.GetAxis("Horizontal");
+        float newXVelocity = owner.rb.velocity.x + (owner.groundAccel * horizontalAxis);
+        if (horizontalAxis > 0)
+        {
+            newXVelocity = Math.Min(newXVelocity, owner.runSpeedMax);
+        }
+        else if (horizontalAxis < 0)
+        {
+            newXVelocity = Math.Max(newXVelocity, -owner.runSpeedMax);
+        }
+
+        owner.rb.velocity = new Vector2(newXVelocity, 0);
+
         base.PhysicsUpdate();
     }
 

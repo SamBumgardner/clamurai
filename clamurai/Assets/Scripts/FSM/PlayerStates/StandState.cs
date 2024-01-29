@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class StandState : GroundState
@@ -22,7 +23,18 @@ public class StandState : GroundState
 
     public override void PhysicsUpdate()
     {
-        owner.rb.velocity = new Vector2(0, 0);
+        float currentVelocityX = owner.rb.velocity.x;
+        float newVelocityX = currentVelocityX;
+        if (currentVelocityX > 0)
+        {
+            newVelocityX = Math.Max(newVelocityX - owner.groundAccel, 0);
+        }
+        else if (currentVelocityX < 0)
+        {
+            newVelocityX = Math.Min(newVelocityX + owner.groundAccel, 0);
+        }
+
+        owner.rb.velocity = new Vector2(newVelocityX, 0);
         base.PhysicsUpdate();
     }
 
