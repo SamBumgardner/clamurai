@@ -39,9 +39,14 @@ public class ObjectiveManager : MonoBehaviour
         return objectiveCompletionStatus.All(status => status);
     }
 
-    public int GetRemainingStatusCount()
+    public int GetCompletedObjectiveCount()
     {
-        return objectiveCompletionStatus.Count(status => !status);
+        return objectiveCompletionStatus.Count(status => status);
+    }
+
+    public int GetTotalObjectiveCount()
+    {
+        return objectiveCompletionStatus.Count();
     }
 
     private void LevelFinished()

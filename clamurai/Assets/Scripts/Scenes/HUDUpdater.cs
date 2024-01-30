@@ -34,7 +34,7 @@ public class HUDUpdater : MonoBehaviour
 
         if (CollectibleCountText != null && objectiveManager != null)
         {
-            CollectibleCountText.text = "x " + objectiveManager.GetRemainingStatusCount();
+            CollectibleCountText.text = objectiveManager.GetCompletedObjectiveCount() + " of " + objectiveManager.GetTotalObjectiveCount();
         }
     }
 }
