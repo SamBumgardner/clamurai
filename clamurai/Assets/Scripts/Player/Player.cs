@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, ITriggerOwner
 {
+    public static string MostRecentlyStartedScene = "Title";
+
     public const float RUN_SPEED = 10f;
     public const float JUMP_SPEED = 10f;
     public const float DIST_GROUND = 1.05f;
@@ -40,6 +43,9 @@ public class Player : MonoBehaviour, ITriggerOwner
     // Start is called before the first frame update
     void Start()
     {
+        MostRecentlyStartedScene = SceneManager.GetActiveScene().name;
+        print(MostRecentlyStartedScene);
+
         terrainMask = LayerMask.GetMask("Terrain");
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -51,6 +57,7 @@ public class Player : MonoBehaviour, ITriggerOwner
         states.Add(new JumpState(this, stateMachine));
         states.Add(new FallState(this, stateMachine));
         states.Add(new HurtState(this, stateMachine));
+        states.Add(new DyingState(this, stateMachine));
         stateMachine.Initialize(states[(int)PlayerStates.STAND]);
 
         var attackHandlers = gameObject.GetComponentsInChildren<AttackHandler>();
@@ -102,7 +109,8 @@ public class Player : MonoBehaviour, ITriggerOwner
             animator.Play(animationToPlay);
             animationToPlay = null;
         }
-        if (invuln)
+        
+        if (invuln && health > 0)
         {
             // dim color to grey if not already
             spriteRenderer.color = Color.gray;
@@ -122,7 +130,7 @@ public class Player : MonoBehaviour, ITriggerOwner
             attackCooldown -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && health > 0)
         {
             bool attackOnCooldown = attackCooldown > 0;
 
@@ -170,18 +178,26 @@ public class Player : MonoBehaviour, ITriggerOwner
 
     public virtual void Hurt(float damage, float knockbackDirection)
     {
-        health -= damage;
-        tookDamage = true;
-        invuln = true;
-        hurtboxOverlapDetector.DisableCollision();
-        invulnTimeCurrent = 0;
+        if (!invuln)
+        {
+            health -= damage;
+            tookDamage = true;
+            invuln = true;
+            hurtboxOverlapDetector.DisableCollision();
+            invulnTimeCurrent = 0;
 
-        hurtKnockback = new Vector2(HURT_KNOCKBACK.x * knockbackDirection, HURT_KNOCKBACK.y);
+            hurtKnockback = new Vector2(HURT_KNOCKBACK.x * knockbackDirection, HURT_KNOCKBACK.y);
+        }
     }
 
     public float GetCurrentDamageInflicted()
     {
         return 1;
+    }
+
+    public void TransitionToGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
     enum LastAttackType
