@@ -43,6 +43,17 @@ public class AirState : State<Player>
         {
             newXVelocity = Math.Max(newXVelocity, -owner.runSpeedMax);
         }
+        else if (horizontalAxis == 0)
+        {
+            if (newXVelocity > 0)
+            {
+                newXVelocity = Math.Max(newXVelocity - owner.jumpDriftAccel, 0);
+            }
+            else if (newXVelocity < 0)
+            {
+                newXVelocity = Math.Min(newXVelocity + owner.jumpDriftAccel, 0);
+            }
+        }
 
         owner.rb.velocity = new Vector2(newXVelocity, owner.rb.velocity.y);
 
