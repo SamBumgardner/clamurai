@@ -526,8 +526,8 @@ MonoBehaviour:
 
     Press [Enter] to Continue'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
-  m_sharedMaterial: {fileID: 362191974226498700, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d00e8e27911e6174f8513caae2932bb5, type: 2}
+  m_sharedMaterial: {fileID: 362191974226498700, guid: d00e8e27911e6174f8513caae2932bb5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -847,8 +847,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAME OVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
-  m_sharedMaterial: {fileID: 362191974226498700, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d00e8e27911e6174f8513caae2932bb5, type: 2}
+  m_sharedMaterial: {fileID: 362191974226498700, guid: d00e8e27911e6174f8513caae2932bb5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
