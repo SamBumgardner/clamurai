@@ -7,7 +7,9 @@ using UnityEngine.UI;
 
 public class HUDUpdater : MonoBehaviour
 {
-    private TextMeshProUGUI LivesText;
+    private Image health;
+
+    private float healthWidth;
 
     private TextMeshProUGUI CollectibleCountText;
 
@@ -17,16 +19,17 @@ public class HUDUpdater : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LivesText = this.gameObject.transform.Find("Lives").GetComponent<TextMeshProUGUI>();
+        health = this.gameObject.transform.Find("Health").transform.GetComponent<Image>();
+        healthWidth = health.rectTransform.rect.width;
         CollectibleCountText = this.gameObject.transform.Find("CollectibleCount").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (LivesText != null && player != null)
+        if (health != null && player != null)
         {
-            LivesText.text = "x " + player.health;
+            health.rectTransform.sizeDelta = new Vector2(healthWidth * player.health / player.healthMax, health.rectTransform.rect.height);
         }
 
         if (CollectibleCountText != null && objectiveManager != null)
