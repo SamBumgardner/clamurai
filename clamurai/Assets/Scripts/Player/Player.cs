@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, ITriggerOwner
 {
+    public static string MostRecentlyStartedScene = "Title";
+
     public const float RUN_SPEED = 10f;
     public const float JUMP_SPEED = 10f;
     public const float DIST_GROUND = 1.05f;
@@ -40,6 +43,9 @@ public class Player : MonoBehaviour, ITriggerOwner
     // Start is called before the first frame update
     void Start()
     {
+        MostRecentlyStartedScene = SceneManager.GetActiveScene().name;
+        print(MostRecentlyStartedScene);
+
         terrainMask = LayerMask.GetMask("Terrain");
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -124,7 +130,7 @@ public class Player : MonoBehaviour, ITriggerOwner
             attackCooldown -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && health > 0)
         {
             bool attackOnCooldown = attackCooldown > 0;
 
@@ -187,6 +193,11 @@ public class Player : MonoBehaviour, ITriggerOwner
     public float GetCurrentDamageInflicted()
     {
         return 1;
+    }
+
+    public void TransitionToGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
     enum LastAttackType
