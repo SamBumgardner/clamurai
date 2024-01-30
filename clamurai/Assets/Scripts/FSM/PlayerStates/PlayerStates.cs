@@ -6,4 +6,5 @@ public enum PlayerStates : int
     JUMP = 2,
     FALL = 3,
     HURT = 4,
+    DYING = 5,
 }

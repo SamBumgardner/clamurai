@@ -51,6 +51,7 @@ public class Player : MonoBehaviour, ITriggerOwner
         states.Add(new JumpState(this, stateMachine));
         states.Add(new FallState(this, stateMachine));
         states.Add(new HurtState(this, stateMachine));
+        states.Add(new DyingState(this, stateMachine));
         stateMachine.Initialize(states[(int)PlayerStates.STAND]);
 
         var attackHandlers = gameObject.GetComponentsInChildren<AttackHandler>();
@@ -102,7 +103,8 @@ public class Player : MonoBehaviour, ITriggerOwner
             animator.Play(animationToPlay);
             animationToPlay = null;
         }
-        if (invuln)
+        
+        if (invuln && health > 0)
         {
             // dim color to grey if not already
             spriteRenderer.color = Color.gray;
@@ -170,13 +172,16 @@ public class Player : MonoBehaviour, ITriggerOwner
 
     public virtual void Hurt(float damage, float knockbackDirection)
     {
-        health -= damage;
-        tookDamage = true;
-        invuln = true;
-        hurtboxOverlapDetector.DisableCollision();
-        invulnTimeCurrent = 0;
+        if (!invuln)
+        {
+            health -= damage;
+            tookDamage = true;
+            invuln = true;
+            hurtboxOverlapDetector.DisableCollision();
+            invulnTimeCurrent = 0;
 
-        hurtKnockback = new Vector2(HURT_KNOCKBACK.x * knockbackDirection, HURT_KNOCKBACK.y);
+            hurtKnockback = new Vector2(HURT_KNOCKBACK.x * knockbackDirection, HURT_KNOCKBACK.y);
+        }
     }
 
     public float GetCurrentDamageInflicted()

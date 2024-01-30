@@ -9,6 +9,11 @@ public class HurtState : State<Player>
 
     public override int HandleInput()
     {
+        if (owner.health <= 0)
+        {
+            return (int)PlayerStates.DYING;
+        }
+
         if (hurtTimer < hurtTimerMax)
         {
             hurtTimer += Time.deltaTime;
@@ -33,12 +38,16 @@ public class HurtState : State<Player>
 
         hurtTimer = 0;
         owner.animationToPlay = "hurt";
-        owner.rb.velocity = owner.hurtKnockback;
-        
+
         var newXScale = owner.hurtKnockback.x > 0 ? -1 : 1;
         var scale = owner.transform.localScale;
         scale.x = newXScale;
         owner.transform.localScale = scale;
+
+        if (owner.health > 0)
+        {
+            owner.rb.velocity = owner.hurtKnockback;
+        }
 
         base.Enter();
     }
