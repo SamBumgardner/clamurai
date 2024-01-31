@@ -487,6 +487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneSmoothTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 4396587214937647305, guid: d7ea12be95ac77e45ac5410a5400854e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 682414595}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

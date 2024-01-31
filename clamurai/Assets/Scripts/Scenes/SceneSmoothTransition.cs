@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneSmoothTransition : MonoBehaviour
 {
     public static SceneSmoothTransition instance;
     private Animator animator;
+    private Image image;
     // Start is called before the first frame update
     void Awake()
     {
@@ -15,6 +17,8 @@ public class SceneSmoothTransition : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            image = GetComponentInChildren<Image>();
+            image.fillCenter = true;
         }
         else if (instance != this)
         {
