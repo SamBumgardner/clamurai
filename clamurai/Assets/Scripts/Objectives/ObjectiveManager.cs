@@ -55,7 +55,7 @@ public class ObjectiveManager : MonoBehaviour
         // This works fine from a functionality perspective though.
         if (!string.IsNullOrEmpty(NextScene))
         {
-            SceneManager.LoadScene(NextScene);
+            SceneSmoothTransition.instance.TransitionScene(NextScene);
         }
     }
 }

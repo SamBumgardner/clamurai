@@ -112,7 +112,7 @@ public class Player : MonoBehaviour, ITriggerOwner
             animator.Play(animationToPlay);
             animationToPlay = null;
         }
-        
+
         if (invuln && health > 0)
         {
             // dim color to grey if not already
@@ -200,7 +200,7 @@ public class Player : MonoBehaviour, ITriggerOwner
 
     public void TransitionToGameOver()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneSmoothTransition.instance.TransitionScene("GameOver");
     }
 
     enum LastAttackType
