@@ -6,7 +6,7 @@ public class JumpState : AirState
 
     public override int HandleInput()
     {
-        if(Input.GetButtonUp("Jump") || owner.rb.velocity.y <= 0)
+        if(!Input.GetButton("Jump") || owner.rb.velocity.y <= 0)
         {
             return (int)PlayerStates.FALL;
         }
