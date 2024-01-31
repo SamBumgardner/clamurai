@@ -52278,6 +52278,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7154250648621434237, guid: 0ac2e6824f7eab94a93f03605959a1d9, type: 3}
+      propertyPath: chaseVisionDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -7154250648621434237, guid: 0ac2e6824f7eab94a93f03605959a1d9, type: 3}
+      propertyPath: patrolVisionDistance
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4583838630717418276, guid: 0ac2e6824f7eab94a93f03605959a1d9, type: 3}
       propertyPath: m_Name
       value: Octopus

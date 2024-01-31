@@ -13,7 +13,6 @@ public class OctIdleState : State<Octopus>
 
     public override int HandleInput()
     {
-        // Check distance to player to see if it should enter chase state
         // It'd be cool to have angles of valid vision, but instead we'll just settle for distance.
         if (owner.GetVectorToPlayer().magnitude <= owner.patrolVisionDistance)
         {
