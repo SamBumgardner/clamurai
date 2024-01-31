@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
 {
-    public const float DESPAWN_DIST = 15;
+    public const float DESPAWN_DIST = 20;
     public const float DIST_GROUND = .55f;
     public const float DIST_SIDE = .5f;
 

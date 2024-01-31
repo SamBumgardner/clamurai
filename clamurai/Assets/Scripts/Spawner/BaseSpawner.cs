@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class BaseSpawner : MonoBehaviour 
@@ -10,6 +8,7 @@ public class BaseSpawner : MonoBehaviour
     // if -1, no limit to spawning. Configure at your own risk!
     public int max_spawn_count = 3;
     public float spawn_cooldown = 2;
+    public float spawnCooldownVariation = 0;
 
     public float remaining_cooldown = 0;
     public int live_spawn_count = 0;
@@ -50,7 +49,7 @@ public class BaseSpawner : MonoBehaviour
         var spawnableComponent = recipe.InitializeSpawnableComponent(newlySpawnedObj);
         live_spawn_count++;
         spawnableComponent.GettingDestroyed += onSpawnedComponentDestroyed;
-        remaining_cooldown += spawn_cooldown;
+        remaining_cooldown += spawn_cooldown + (spawnCooldownVariation * 2 * UnityEngine.Random.value - spawnCooldownVariation);
     }
 
     public void onSpawnedComponentDestroyed(object sender, EventArgs e)
