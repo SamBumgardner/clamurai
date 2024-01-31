@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class AirState : State<Player>
@@ -7,8 +8,6 @@ public class AirState : State<Player>
     public override int HandleInput()
     {
         float horizontalAxis = Input.GetAxis("Horizontal");
-        owner.rb.velocity = new Vector2(Player.RUN_SPEED * horizontalAxis, owner.rb.velocity.y);
-
         if (horizontalAxis != 0.0f)
         {
             var newXScale = horizontalAxis > 0 ? 1 : -1;
@@ -30,5 +29,34 @@ public class AirState : State<Player>
         }
 
         return base.HandleInput();
+    }
+
+    public override void PhysicsUpdate()
+    {
+        var horizontalAxis = Input.GetAxis("Horizontal");
+        float newXVelocity = owner.rb.velocity.x + (owner.jumpDriftAccel * horizontalAxis);
+        if (horizontalAxis > 0)
+        {
+            newXVelocity = Math.Min(newXVelocity, owner.runSpeedMax);
+        }
+        else if (horizontalAxis < 0)
+        {
+            newXVelocity = Math.Max(newXVelocity, -owner.runSpeedMax);
+        }
+        else if (horizontalAxis == 0)
+        {
+            if (newXVelocity > 0)
+            {
+                newXVelocity = Math.Max(newXVelocity - owner.jumpDriftAccel, 0);
+            }
+            else if (newXVelocity < 0)
+            {
+                newXVelocity = Math.Min(newXVelocity + owner.jumpDriftAccel, 0);
+            }
+        }
+
+        owner.rb.velocity = new Vector2(newXVelocity, owner.rb.velocity.y);
+
+        base.PhysicsUpdate();
     }
 }
