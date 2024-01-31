@@ -26,6 +26,11 @@ public class FishSwimState : State<Fish>
     public override void Enter()
     {
         owner.rb.velocity = new Vector2(owner.maxVelocity.x * owner.directionX, 0);
+
+        var scale = owner.transform.localScale;
+        scale.x = owner.directionX;
+        owner.transform.localScale = scale;
+
         base.Enter();
     }
 }
