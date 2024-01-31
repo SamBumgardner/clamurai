@@ -7,4 +7,18 @@ public class OctBaseState : State<Octopus>
         // check for transition to hurt state
         return base.HandleInput();
     }
+
+    public override void LogicUpdate()
+    {
+        UpdateFacing();
+
+        base.LogicUpdate();
+    }
+
+    private void UpdateFacing()
+    {
+        var scale = owner.transform.localScale;
+        scale.x = owner.directionX;
+        owner.transform.localScale = scale;
+    }
 }
