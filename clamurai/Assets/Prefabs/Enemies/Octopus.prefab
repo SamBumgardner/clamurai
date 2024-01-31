@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
+  m_Sprite: {fileID: 1705178847, guid: 068e7ace71da8c14f871aad3401443af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +126,7 @@ Animator:
   m_GameObject: {fileID: 4583838630717418276}
   m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bfa133ac304d74d4ab5533f14cbbb316, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1f9aa7f2e2700544c9cb026b14d2eba9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   terrainCollider: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  animator: {fileID: 0}
   player: {fileID: 0}
   directionX: 1
   patrolVelocityX: 1

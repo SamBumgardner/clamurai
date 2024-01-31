@@ -32,6 +32,4 @@ public class OctStrikeState : State<Octopus>
         strikeDurationCurrent = strikeDurationMax;
         base.Enter();
     }
-
-    // Implement method to receive callback when strike animation's done?
 }

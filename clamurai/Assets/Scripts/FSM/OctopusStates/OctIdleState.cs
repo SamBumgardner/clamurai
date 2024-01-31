@@ -68,6 +68,7 @@ public class OctIdleState : State<Octopus>
 
     public override void Enter()
     {
+        owner.animator.Play("idle");
         owner.rb.velocity = Vector2.zero;
         base.Enter();
     }

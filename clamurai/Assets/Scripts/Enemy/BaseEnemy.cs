@@ -27,6 +27,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public BoxCollider2D terrainCollider;
     public SpriteRenderer spriteRenderer;
     protected OverlapDetector[] overlapDetectors;
+    public Animator animator;
 
     private GameObject mainCameraRef;
 
@@ -39,6 +40,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         terrainCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         overlapDetectors = GetComponentsInChildren<OverlapDetector>();
+        animator = GetComponent<Animator>();
 
         terrainMask = LayerMask.GetMask("Terrain");
         playerHurtboxLayerMask = LayerMask.GetMask("PlayerHurtbox");
