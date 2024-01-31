@@ -152,6 +152,7 @@ MonoBehaviour:
   tookDamage: 0
   standardKnockback: {x: 1, y: 2}
   knockbackToApply: {x: 0, y: 0}
+  animationToPlay: 
   health: 1
   contactDamage: 0
   invulnTimeMax: 0

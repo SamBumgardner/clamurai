@@ -5,7 +5,7 @@ public class OctChaseState : OctBaseState
     public OctChaseState(Octopus octopus, StateMachine<Octopus> stateMachine) : base(octopus, stateMachine) { }
 
     const float MOVE_COOLDOWN_MAX = 3;
-    public float moveCoolDownReductionRate = .8f;
+    public float moveCoolDownReductionRate = .7f;
     public float moveCooldownMax = 3;
     public float moveCooldownCurrent = 1;
     public float moveDecayRate = .95f;
@@ -37,13 +37,21 @@ public class OctChaseState : OctBaseState
 
     public override void PhysicsUpdate()
     {
-        // bursts of decaying movement, when velocity reaches 0 do another burst. Only track on player with initial movement
         moveCooldownCurrent -= Time.fixedDeltaTime;
         if (moveCooldownCurrent <= 0)
         {
             owner.rb.velocity = owner.GetVectorToPlayer().normalized * chaseVelocityMax;
             moveCooldownMax *= moveCoolDownReductionRate;
             moveCooldownCurrent = moveCooldownMax;
+
+            if (owner.rb.velocity.x < 0)
+            {
+                owner.directionX = -1;
+            }
+            if (owner.rb.velocity.x > 0)
+            {
+                owner.directionX = 1;
+            }
         }
         else
         {
@@ -54,7 +62,19 @@ public class OctChaseState : OctBaseState
 
     public override void Enter()
     {
-        Debug.Log("entered chase state");
+        // turn to face player
+        var vectorToPlayer = owner.GetVectorToPlayer();
+        if (vectorToPlayer.x > 0)
+        {
+            owner.directionX = 1;
+        }
+        else
+        {
+            owner.directionX = -1;
+        }
+        owner.rb.velocity = Vector2.zero;
+
+        owner.animationToPlay = "chase";
         moveCooldownMax = MOVE_COOLDOWN_MAX;
         moveCooldownCurrent = 1;
         strikeCooldownCurrent = strikeCooldownMax;

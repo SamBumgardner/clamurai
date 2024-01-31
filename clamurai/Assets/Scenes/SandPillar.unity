@@ -52286,17 +52286,21 @@ PrefabInstance:
       propertyPath: patrolVisionDistance
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2634217610533175026, guid: 0ac2e6824f7eab94a93f03605959a1d9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4583838630717418276, guid: 0ac2e6824f7eab94a93f03605959a1d9, type: 3}
       propertyPath: m_Name
       value: Octopus
       objectReference: {fileID: 0}
     - target: {fileID: 5457322097055429987, guid: 0ac2e6824f7eab94a93f03605959a1d9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.012711
+      value: 15.04
       objectReference: {fileID: 0}
     - target: {fileID: 5457322097055429987, guid: 0ac2e6824f7eab94a93f03605959a1d9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.674075
+      value: 8.34
       objectReference: {fileID: 0}
     - target: {fileID: 5457322097055429987, guid: 0ac2e6824f7eab94a93f03605959a1d9, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OctReadyToStrikeState : State<Octopus>
+public class OctReadyToStrikeState : OctBaseState
 {
     public OctReadyToStrikeState(Octopus octopus, StateMachine<Octopus> stateMachine) : base(octopus, stateMachine) { }
 

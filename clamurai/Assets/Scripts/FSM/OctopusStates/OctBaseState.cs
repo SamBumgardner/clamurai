@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class OctBaseState : State<Octopus>
 {
     public OctBaseState(Octopus octopus, StateMachine<Octopus> stateMachine) : base(octopus, stateMachine) {}
@@ -18,7 +20,10 @@ public class OctBaseState : State<Octopus>
     private void UpdateFacing()
     {
         var scale = owner.transform.localScale;
-        scale.x = owner.directionX;
+        if ((scale.x < 0 && owner.directionX > 0) || scale.x > 0 && owner.directionX < 0)
+        {
+            scale.x = -scale.x;
+        }
         owner.transform.localScale = scale;
     }
 }

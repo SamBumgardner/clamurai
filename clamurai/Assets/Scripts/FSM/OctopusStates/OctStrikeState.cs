@@ -1,18 +1,17 @@
 using UnityEngine;
 
-public class OctStrikeState : State<Octopus>
+public class OctStrikeState : OctBaseState
 {
     public OctStrikeState(Octopus octopus, StateMachine<Octopus> stateMachine) : base(octopus, stateMachine) { }
 
     public Vector2 strikeDirection;
-    public float strikeVelocity = 10;
+    public float strikeVelocity = 15;
     
-    public float strikeDurationMax = 1;
+    public float strikeDurationMax = .5f;
     public float strikeDurationCurrent;
 
     public override int HandleInput()
     {
-        // if strike is ending, return to chase state
         strikeDurationCurrent -= Time.deltaTime;
         if (strikeDurationCurrent <= 0)
         {
@@ -24,7 +23,9 @@ public class OctStrikeState : State<Octopus>
 
     public override void Enter()
     {
-        // Set lunge velocity, change color to show invulnerability
+        owner.animationToPlay = "strike";
+
+        owner.spriteRenderer.color = Color.red;
         owner.transform.localScale = new Vector3(owner.directionX, 1, 1);
         strikeDirection = owner.GetVectorToPlayer().normalized;
         owner.rb.velocity = strikeDirection * strikeVelocity;

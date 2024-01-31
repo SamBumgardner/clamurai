@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OctIdleState : State<Octopus>
+public class OctIdleState : OctBaseState
 {
     public OctIdleState(Octopus octopus, StateMachine<Octopus> stateMachine) : base(octopus, stateMachine) {}
 
@@ -68,7 +68,7 @@ public class OctIdleState : State<Octopus>
 
     public override void Enter()
     {
-        owner.animator.Play("idle");
+        owner.animationToPlay = "idle";
         owner.rb.velocity = Vector2.zero;
         base.Enter();
     }

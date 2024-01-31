@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OctHurtState : State<Octopus>
+public class OctHurtState : OctBaseState
 {
     public float hurtTimerMax = .5f;
     public float hurtTimer = 0;

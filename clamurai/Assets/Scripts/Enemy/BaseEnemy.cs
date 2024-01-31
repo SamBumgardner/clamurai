@@ -10,6 +10,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public bool tookDamage = false; // Should trigger transition to hurt state
     public Vector2 standardKnockback = new Vector2(1, 2);
     public Vector2 knockbackToApply;
+    public string animationToPlay = null;
 
     public float health = 1;
     public float contactDamage;
@@ -107,6 +108,12 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         {
             // Despawn due to distance. Probably don't want to handle the same as "dying" above,
             Destroy(gameObject);
+        }
+
+        if (!string.IsNullOrEmpty(animationToPlay))
+        {
+            animator.Play(animationToPlay);
+            animationToPlay = null;
         }
 
         if (invuln)
