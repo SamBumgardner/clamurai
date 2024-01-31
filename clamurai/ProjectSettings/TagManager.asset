@@ -45,3 +45,6 @@ TagManager:
   - name: UI
     uniqueID: 1152698585
     locked: 0
+  - name: Scene Transition
+    uniqueID: 4124954019
+    locked: 0
