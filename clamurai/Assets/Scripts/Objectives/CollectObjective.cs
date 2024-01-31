@@ -20,15 +20,19 @@ public class CollectObjective : MonoBehaviour, IObjective
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var collectedStatusChange = new ObjectiveStatusChangeEventArgs {
-            ObjectiveID = ID,
-            IsComplete = true,
-            Progress = 1.0f,
-        };
-        ObjectiveStatusChange(this, collectedStatusChange); // will fail if there are no subscribers
-        spriteRenderer.enabled = false;
-        boxCollider2D.enabled = false;
-        particleSystemComponent.Stop();
-        // play fun pickup noise
+        if (other.gameObject.tag == "Player")
+        {
+            var collectedStatusChange = new ObjectiveStatusChangeEventArgs
+            {
+                ObjectiveID = ID,
+                IsComplete = true,
+                Progress = 1.0f,
+            };
+            ObjectiveStatusChange(this, collectedStatusChange); // will fail if there are no subscribers
+            spriteRenderer.enabled = false;
+            boxCollider2D.enabled = false;
+            particleSystemComponent.Stop();
+            // play fun pickup noise
+        }
     }
 }
