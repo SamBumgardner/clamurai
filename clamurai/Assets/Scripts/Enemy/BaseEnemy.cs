@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
 {
+    public const float DESPAWN_DIST = 15;
     public const float DIST_GROUND = .55f;
     public const float DIST_SIDE = .5f;
 
@@ -27,9 +28,13 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public SpriteRenderer spriteRenderer;
     protected OverlapDetector[] overlapDetectors;
 
+    private GameObject mainCameraRef;
+
     // Start is called before the first frame update
     void Start()
     {
+        mainCameraRef = GameObject.FindWithTag("MainCamera");
+
         rb = GetComponent<Rigidbody2D>();
         terrainCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -93,6 +98,12 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         if (health <= 0)
         {
             // enemy defeated, blow em up
+            Defeat();
+        }
+
+        if ((transform.position - mainCameraRef.transform.position).magnitude > DESPAWN_DIST)
+        {
+            // Despawn due to distance. Probably don't want to handle the same as "dying" above,
             Destroy(gameObject);
         }
 
@@ -143,6 +154,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public virtual void Defeat()
     {
         // stop state machine processing, activate defeated animation. Make sure have callback to perform cleanup when done.
+        Destroy(gameObject);
     }
 
     public bool IsOnGround()
