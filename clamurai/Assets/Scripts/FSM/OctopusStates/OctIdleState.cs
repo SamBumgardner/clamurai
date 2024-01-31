@@ -14,6 +14,12 @@ public class OctIdleState : State<Octopus>
     public override int HandleInput()
     {
         // Check distance to player to see if it should enter chase state
+        // It'd be cool to have angles of valid vision, but instead we'll just settle for distance.
+        if (owner.GetVectorToPlayer().magnitude <= owner.patrolVisionDistance)
+        {
+            return (int)OctStates.CHASE;
+        }
+
         return base.HandleInput();
     }
 
@@ -33,10 +39,12 @@ public class OctIdleState : State<Octopus>
         // add to Y velocity a static amount until hitting target speed, then reverse direction
         if (currentVelocityY > maxBobVelocityY)
         {
+            currentVelocityY = maxBobVelocityY; 
             directionY = -1;
         }
         else if (currentVelocityY < -maxBobVelocityY)
         {
+            currentVelocityY = -maxBobVelocityY;
             directionY = 1;
         }
         
@@ -61,7 +69,7 @@ public class OctIdleState : State<Octopus>
 
     public override void Enter()
     {
-        // kill velocity when entering
+        owner.rb.velocity = Vector2.zero;
         base.Enter();
     }
 }

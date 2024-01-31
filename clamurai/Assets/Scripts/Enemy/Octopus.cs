@@ -13,6 +13,9 @@ public class Octopus : BaseEnemy<Octopus>, ISpawnable
     public float patrolTime = 2;
     public float waitTime = 2;
 
+    public float patrolVisionDistance = 4;
+    public float chaseVisionDistance = 7;
+
     Octopus()
     {
         states.Add(new OctIdleState(this, stateMachine));
@@ -27,6 +30,15 @@ public class Octopus : BaseEnemy<Octopus>, ISpawnable
     {
         directionX = (int)args[0];
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    public Vector2 GetVectorToPlayer()
+    {
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        return player.transform.position - transform.position;
     }
 
     public void OnDestroy()

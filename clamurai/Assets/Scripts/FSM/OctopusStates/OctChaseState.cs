@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class OctChaseState : OctBaseState
 {
     public OctChaseState(Octopus octopus, StateMachine<Octopus> stateMachine) : base(octopus, stateMachine) { }
@@ -5,6 +7,12 @@ public class OctChaseState : OctBaseState
     public override int HandleInput()
     {
         // Check distance to player to see if it should return to idle
+        if (owner.GetVectorToPlayer().magnitude > owner.chaseVisionDistance)
+        {
+            // Reset aggression
+            return (int)OctStates.IDLE;
+        }
+
         // Check cooldown to see if it can do a lunging strike - begins charging if so
         return base.HandleInput();
     }
@@ -17,6 +25,7 @@ public class OctChaseState : OctBaseState
 
     public override void Enter()
     {
+        Debug.Log("entered chase state");
         base.Enter();
     }
 }
