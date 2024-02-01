@@ -767,7 +767,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The ocean is safe; \nThe Clamurai rests.\n"
+  m_text: 'The Pearls are safe.
+
+    The Seas are at peace.
+
+    The Clamurai rests.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
   m_sharedMaterial: {fileID: 362191974226498700, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
