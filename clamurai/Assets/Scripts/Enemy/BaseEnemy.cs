@@ -10,6 +10,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public bool tookDamage = false; // Should trigger transition to hurt state
     public Vector2 standardKnockback = new Vector2(1, 2);
     public Vector2 knockbackToApply;
+    public string animationToPlay = null;
 
     public float health = 1;
     public float contactDamage;
@@ -27,6 +28,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     public BoxCollider2D terrainCollider;
     public SpriteRenderer spriteRenderer;
     protected OverlapDetector[] overlapDetectors;
+    public Animator animator;
 
     private GameObject mainCameraRef;
 
@@ -39,6 +41,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         terrainCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         overlapDetectors = GetComponentsInChildren<OverlapDetector>();
+        animator = GetComponent<Animator>();
 
         terrainMask = LayerMask.GetMask("Terrain");
         playerHurtboxLayerMask = LayerMask.GetMask("PlayerHurtbox");
@@ -67,8 +70,11 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     // Update is called once per frame
     void Update()
     {
-        applyInputAndTransitionStates();
-        stateMachine.CurrentState.LogicUpdate();
+        if (health > 0) // hacky and bad - probably best to manage "dying" states through state machine. Just getting across the finish line now.
+        {
+            applyInputAndTransitionStates();
+            stateMachine.CurrentState.LogicUpdate();
+        }
 
         if (!invuln)
         {
@@ -107,7 +113,13 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
             Destroy(gameObject);
         }
 
-        if (invuln)
+        if (!string.IsNullOrEmpty(animationToPlay))
+        {
+            animator.Play(animationToPlay);
+            animationToPlay = null;
+        }
+
+        if (invuln && health > 0)
         {
             // dim color to grey if not already
             spriteRenderer.color = Color.gray;
