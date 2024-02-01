@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Title.unity
     guid: ba283ff62a910b54f8d735327c8ae559
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SandPillar.unity
     guid: 1d10a35db399a724780a35752dd27aec
   - enabled: 1
@@ -26,4 +26,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 564bad15e3959674eada90d5072ecef8
+  - enabled: 1
+    path: Assets/Scenes/levels/ReefDirections.unity
+    guid: 455025665123ece4b81809e8b928e728
+  - enabled: 1
+    path: Assets/Scenes/levels/ThroughTheReef.unity
+    guid: 18d4a2788e480be48ad5581aecf22fd6
+  - enabled: 1
+    path: Assets/Scenes/levels/TowerReef.unity
+    guid: 9e05241172e8b1347ae63dd82d63784a
+  - enabled: 1
+    path: Assets/Scenes/levels/CavernRace.unity
+    guid: d76ba99c9c2279a4fa61fb0bf1e843d3
+  - enabled: 1
+    path: Assets/Scenes/levels/CrabPit.unity
+    guid: 94902b1ad5e29aa4085356f1f029892d
   m_configObjects: {}
