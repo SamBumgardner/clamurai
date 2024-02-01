@@ -55018,7 +55018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6170738227724846944, guid: e05850722025fe449b16f08eb85d3b3a, type: 3}
       propertyPath: NextScene
-      value: CrabPit
+      value: ReefDirections
       objectReference: {fileID: 0}
     - target: {fileID: 7241528705969965133, guid: e05850722025fe449b16f08eb85d3b3a, type: 3}
       propertyPath: m_Name
