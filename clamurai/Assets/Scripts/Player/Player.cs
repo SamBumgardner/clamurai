@@ -8,7 +8,7 @@ public class Player : MonoBehaviour, ITriggerOwner
 
     public const float JUMP_SPEED = 10f;
     public const float DIST_GROUND = 1.05f;
-    public const float DIST_SIDE = .4f;
+    public const float DIST_SIDE = .35f;
     public const float FALL_YSPEED_CUTOFF = 3f;
     public static Vector2 HURT_KNOCKBACK = new Vector2(1, 2);
 
