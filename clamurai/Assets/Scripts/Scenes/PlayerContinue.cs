@@ -6,9 +6,9 @@ public class PlayerContinue : MonoBehaviour
 {
     void Update()
     {
-        if(Input.GetButtonDown("Submit"))
+        if (Input.GetButtonDown("Submit"))
         {
-            SceneManager.LoadScene(Player.MostRecentlyStartedScene);
-        }   
+            SceneSmoothTransition.instance.TransitionScene(Player.MostRecentlyStartedScene);
+        }
     }
 }
