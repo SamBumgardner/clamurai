@@ -153,9 +153,9 @@ MonoBehaviour:
   standardKnockback: {x: 1, y: 2}
   knockbackToApply: {x: 0, y: 0}
   animationToPlay: 
-  health: 1
-  contactDamage: 0
-  invulnTimeMax: 0
+  health: 4
+  contactDamage: 2
+  invulnTimeMax: 1
   terrainMask:
     serializedVersion: 2
     m_Bits: 0

@@ -70,8 +70,11 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
     // Update is called once per frame
     void Update()
     {
-        applyInputAndTransitionStates();
-        stateMachine.CurrentState.LogicUpdate();
+        if (health > 0) // hacky and bad - probably best to manage "dying" states through state machine. Just getting across the finish line now.
+        {
+            applyInputAndTransitionStates();
+            stateMachine.CurrentState.LogicUpdate();
+        }
 
         if (!invuln)
         {
@@ -116,7 +119,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
             animationToPlay = null;
         }
 
-        if (invuln)
+        if (invuln && health > 0)
         {
             // dim color to grey if not already
             spriteRenderer.color = Color.gray;

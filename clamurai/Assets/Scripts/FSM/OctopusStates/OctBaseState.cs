@@ -6,7 +6,6 @@ public class OctBaseState : State<Octopus>
 
     public override int HandleInput()
     {
-        // check for transition to hurt state
         return base.HandleInput();
     }
 
