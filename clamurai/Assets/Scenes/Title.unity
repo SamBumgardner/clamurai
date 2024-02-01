@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d78a8ce4a2e6042bcc519a98236990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: SandPillar
+  NextScene: ThroughTheReef
 --- !u!4 &793631458
 Transform:
   m_ObjectHideFlags: 0
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Start to Play
+  m_text: Press Enter to Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
   m_sharedMaterial: {fileID: 362191974226498700, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
