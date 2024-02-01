@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5dee50ebd5398bd428b386be0659be1d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50b54818ca80eea47b7392ef33afc8b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d78a8ce4a2e6042bcc519a98236990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: MissingPearls
+  NextScene: Credits
 --- !u!4 &793631458
 Transform:
   m_ObjectHideFlags: 0
@@ -669,7 +669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -119.88196}
+  m_AnchoredPosition: {x: 0, y: -210}
   m_SizeDelta: {x: 832.93, y: 351.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1442251340
@@ -744,7 +744,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.00000023841858, y: 28}
+  m_AnchoredPosition: {x: 0.00000023841858, y: 539.99994}
   m_SizeDelta: {x: 794.11, y: 44.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459219994
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Enter to Play
+  m_text: "The ocean is safe; \nThe Clamurai rests.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
   m_sharedMaterial: {fileID: 362191974226498700, guid: a94a15d0004197a40abb6daec355ef27, type: 2}
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 15
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0

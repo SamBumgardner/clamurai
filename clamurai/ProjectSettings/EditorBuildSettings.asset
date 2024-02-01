@@ -41,4 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/levels/CrabPit.unity
     guid: 94902b1ad5e29aa4085356f1f029892d
+  - enabled: 1
+    path: Assets/Scenes/story/MissingPearls.unity
+    guid: 79da7072bcd18134f866ee9323711d56
+  - enabled: 1
+    path: Assets/Scenes/story/WellEarnedRest.unity
+    guid: 8754a1384ebe8924f96842db7d06356b
   m_configObjects: {}
