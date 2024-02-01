@@ -70,6 +70,7 @@ public class OctIdleState : OctBaseState
     {
         owner.animationToPlay = "idle";
         owner.rb.velocity = Vector2.zero;
+        patrolTimer = owner.patrolTime;
         base.Enter();
     }
 }
