@@ -213,7 +213,7 @@ MonoBehaviour:
   maxHealth: 4
   directionX: 1
   patrolVelocityX: 1
-  patrolTime: 2
+  patrolTime: 6
   waitTime: 2
   patrolVisionDistance: 10
   chaseVisionDistance: 12

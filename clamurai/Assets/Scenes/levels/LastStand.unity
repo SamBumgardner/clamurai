@@ -229,7 +229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: max_spawn_count
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: remaining_cooldown
@@ -249,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -722,7 +722,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: max_spawn_count
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: remaining_cooldown
@@ -742,7 +742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62353,7 +62353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: max_spawn_count
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: remaining_cooldown
@@ -62373,7 +62373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62434,7 +62434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: max_spawn_count
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: remaining_cooldown
@@ -62454,7 +62454,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62534,7 +62534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: max_spawn_count
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: remaining_cooldown
@@ -62554,7 +62554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -62895,7 +62895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: max_spawn_count
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 315666504245151508, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: remaining_cooldown
@@ -62915,7 +62915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8607340443666001599, guid: 8a1ba2c879b9e7d4ca384f517f21a3f0, type: 3}
       propertyPath: m_LocalPosition.z
