@@ -115,7 +115,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
 
         if (!string.IsNullOrEmpty(animationToPlay))
         {
-            //animator.Play(animationToPlay);
+            animator.Play(animationToPlay);
             animationToPlay = null;
         }
 

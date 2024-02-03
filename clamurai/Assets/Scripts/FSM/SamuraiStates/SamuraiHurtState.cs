@@ -26,7 +26,7 @@ public class SamuraiHurtState : State<Samurai>
         owner.tookDamage = false;
 
         hurtTimer = 0;
-        owner.animationToPlay = "hurt";
+        owner.animationToPlay = "hitdamage";
         owner.rb.velocity = owner.knockbackToApply;
 
         var newXScale = owner.knockbackToApply.x > 0 ? -1 : 1;

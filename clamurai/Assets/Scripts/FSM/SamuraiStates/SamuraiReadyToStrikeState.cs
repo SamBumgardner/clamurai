@@ -21,7 +21,8 @@ public class SamuraiReadyToStrikeState : SamuraiBaseState
     public override void Enter()
     {
         // maybe set warning color
-        // Freeze animation, maybe?
+        owner.animationToPlay = "stop";
+        owner.animator.StopPlayback();
         owner.rb.velocity = Vector2.zero;
         strikeDelayCurrent = strikeDelayMax;
         base.Enter();

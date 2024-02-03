@@ -23,7 +23,7 @@ public class SamuraiStrikeState : SamuraiBaseState
 
     public override void Enter()
     {
-        owner.animationToPlay = "strike";
+        owner.animationToPlay = "attack";
 
         strikeDirection = new Vector2(owner.directionX, 0);
         owner.rb.velocity = strikeDirection * strikeVelocity;

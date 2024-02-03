@@ -41,7 +41,7 @@ public class SamuraiPatrolState : SamuraiBaseState
             }
             else
             {
-                owner.animationToPlay = "stopped";
+                owner.animationToPlay = "stop";
             }
             isWaiting = !isWaiting;
             patrolTimer = owner.patrolTime;

@@ -70,7 +70,7 @@ public class SamuraiChaseState : SamuraiBaseState
         var vectorToPlayer = owner.GetVectorToPlayer();
         owner.directionX = Math.Sign(vectorToPlayer.x);
 
-        owner.animationToPlay = "chase";
+        owner.animationToPlay = "walk";
         base.Enter();
     }
 }
