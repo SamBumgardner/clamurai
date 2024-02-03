@@ -1,0 +1,1139 @@
+fileFormatVersion: 2
+guid: b4d0eaa4f903e18458e9941d52af457b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 0
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 32
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638424972166276194
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: enemysamurai_Frame_0
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 561
+      width: 116
+      height: 61
+    spriteID: 13328f3f31251e54e9ac18fb406d47a6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 561}
+  - name: enemysamurai_Frame_1
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 630
+      width: 116
+      height: 61
+    spriteID: 23454e5984f3f5749a5f52c86e1b6c4f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 630}
+  - name: enemysamurai_Frame_2
+    originalName: 
+    pivot: {x: 0.7372881, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 213
+      width: 118
+      height: 61
+    spriteID: ee8de53f4e4a7544e9ff7aa116773d2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 213}
+  - name: enemysamurai_Frame_3
+    originalName: 
+    pivot: {x: 0.7372881, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 282
+      width: 118
+      height: 61
+    spriteID: 6eb59dbcf8d4e8f4aac1f381b7ee7364
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 282}
+  - name: enemysamurai_Frame_4
+    originalName: 
+    pivot: {x: 0.73109245, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 4
+      width: 119
+      height: 61
+    spriteID: 2d6c5fc0b75498241937914f11436bca
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 4}
+  - name: enemysamurai_Frame_5
+    originalName: 
+    pivot: {x: 0.73109245, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 73
+      width: 119
+      height: 61
+    spriteID: 8562e2ac3411f0c4aadf7a35fabf56c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 73}
+  - name: enemysamurai_Frame_6
+    originalName: 
+    pivot: {x: 0.8365385, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 213
+      width: 104
+      height: 63
+    spriteID: 09272070f3af6af479fe687e481c7ec4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 213}
+  - name: enemysamurai_Frame_7
+    originalName: 
+    pivot: {x: 0.8365385, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 284
+      width: 104
+      height: 63
+    spriteID: fa2e2c98a14ff6a4bb9271a52812c77e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 284}
+  - name: enemysamurai_Frame_8
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 699
+      width: 116
+      height: 61
+    spriteID: 0732cd351ac308c46ac2b099795406ba
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 699}
+  - name: enemysamurai_Frame_9
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 768
+      width: 116
+      height: 61
+    spriteID: ea3b47872b96f524b8560f880c74623c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 768}
+  - name: enemysamurai_Frame_10
+    originalName: 
+    pivot: {x: 0.480663, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 430
+      width: 181
+      height: 61
+    spriteID: 2e12b088b0e4993408f4f2837d8bae83
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 430}
+  - name: enemysamurai_Frame_11
+    originalName: 
+    pivot: {x: 0.47802198, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 361
+      width: 182
+      height: 61
+    spriteID: 1612783d4d7ce76478b364cbcc9c53a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 361}
+  - name: enemysamurai_Frame_12
+    originalName: 
+    pivot: {x: 0.480663, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 499
+      width: 181
+      height: 61
+    spriteID: 395543f034e61e2478d2787fe4649982
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 499}
+  - name: enemysamurai_Frame_13
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 837
+      width: 116
+      height: 61
+    spriteID: f48a1dc2e471ec54fbace5c46fec7c44
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 837}
+  - name: enemysamurai_Frame_14
+    originalName: 
+    pivot: {x: 0.48333335, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 568
+      width: 180
+      height: 61
+    spriteID: f553f19e07b9c5141a2a41ecf4d4d206
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 568}
+  - name: enemysamurai_Frame_15
+    originalName: 
+    pivot: {x: 0.4, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 355
+      width: 51
+      height: 61
+    spriteID: a90403a9c52000e45811ec5c5b747873
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 355}
+  - name: enemysamurai_Frame_16
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 906
+      width: 116
+      height: 61
+    spriteID: b8a6fb108f9682643b7b8b900d61fccd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 906}
+  - name: enemysamurai_Frame_17
+    originalName: 
+    pivot: {x: 0.39013454, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 223
+      height: 64
+    spriteID: 38fc045c9505b684bbdacc5131222ba9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: enemysamurai_Frame_18
+    originalName: 
+    pivot: {x: 0.7372881, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 4
+      width: 118
+      height: 63
+    spriteID: 9557156455445714b9c1bb6ef45794f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 4}
+  - name: enemysamurai_Frame_19
+    originalName: 
+    pivot: {x: 0.39013454, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 76
+      width: 223
+      height: 64
+    spriteID: e46de43cd99c05e49be19a65b82e25fd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 76}
+  - name: enemysamurai_Frame_20
+    originalName: 
+    pivot: {x: 0.7565217, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 144
+      width: 115
+      height: 61
+    spriteID: ed40cabd81fce4c4386df3d9ec0f39df
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 144}
+  - name: enemysamurai_Frame_21
+    originalName: 
+    pivot: {x: 0.47540984, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 292
+      width: 183
+      height: 61
+    spriteID: c8f5513719d7ef347b0c73d79fd0634c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 292}
+  - name: enemysamurai_Frame_22
+    originalName: 
+    pivot: {x: 0.52409637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 637
+      width: 166
+      height: 63
+    spriteID: 9c24d3854cc480a47b60ac0e922c69ea
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 637}
+  - name: enemysamurai_Frame_23
+    originalName: 
+    pivot: {x: 0.52409637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 708
+      width: 166
+      height: 63
+    spriteID: 0fe576f9e00150f448000095a2e8a929
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 708}
+  - name: enemysamurai_Frame_24
+    originalName: 
+    pivot: {x: 0.52409637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 779
+      width: 166
+      height: 63
+    spriteID: 6422c90ccec7d6c4ea241072872a152e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 779}
+  - name: enemysamurai_Frame_25
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 75
+      width: 116
+      height: 61
+    spriteID: c7a60fb058c018c4093990ce481ceec9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 75}
+  - name: enemysamurai_Frame_26
+    originalName: 
+    pivot: {x: 0.39013454, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 223
+      height: 64
+    spriteID: 62017ad430282ce4883af58626cee0b1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: enemysamurai_Frame_27
+    originalName: 
+    pivot: {x: 0.7565217, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 142
+      width: 115
+      height: 63
+    spriteID: 97535360a9f8ee542b869c060017549c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 142}
+  - name: enemysamurai_Frame_28
+    originalName: 
+    pivot: {x: 0.39013454, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 220
+      width: 223
+      height: 64
+    spriteID: 5ca074e4886cc1d46ad05ce4e51f915e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 220}
+  - name: enemysamurai_Frame_29
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 351
+      width: 116
+      height: 62
+    spriteID: 74c44fffc12bd5d4f996d7e7b89525ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 351}
+  - name: enemysamurai_Frame_30
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 421
+      width: 116
+      height: 62
+    spriteID: 4db0e32b2dc33bb45ad98149b5a6fbe4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 421}
+  - name: enemysamurai_Frame_31
+    originalName: 
+    pivot: {x: 0.75, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 361
+      y: 491
+      width: 116
+      height: 62
+    spriteID: 7b4ce4bb083dc1046aba0192a9e105ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 361, y: 491}
+  - name: enemysamurai_Frame_32
+    originalName: 
+    pivot: {x: 0.52409637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 850
+      width: 166
+      height: 63
+    spriteID: b3fcee63fabd3e24195562106c86b55f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 850}
+  - name: enemysamurai_Frame_33
+    originalName: 
+    pivot: {x: 0.52409637, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 921
+      width: 166
+      height: 63
+    spriteID: d25f302045863724ab8d9bb12beec09e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 921}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1136762584
+    name: enemysamurai
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: enemysamurai_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 61
+      spriteId: 13328f3f31251e54e9ac18fb406d47a6
+    - name: enemysamurai_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 61
+      spriteId: 23454e5984f3f5749a5f52c86e1b6c4f
+    - name: enemysamurai_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: -55
+        y: 0
+        width: 118
+        height: 61
+      spriteId: ee8de53f4e4a7544e9ff7aa116773d2b
+    - name: enemysamurai_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: -55
+        y: 0
+        width: 118
+        height: 61
+      spriteId: 6eb59dbcf8d4e8f4aac1f381b7ee7364
+    - name: enemysamurai_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: -55
+        y: 0
+        width: 119
+        height: 61
+      spriteId: 2d6c5fc0b75498241937914f11436bca
+    - name: enemysamurai_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: -55
+        y: 0
+        width: 119
+        height: 61
+      spriteId: 8562e2ac3411f0c4aadf7a35fabf56c8
+    - name: enemysamurai_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: -55
+        y: 0
+        width: 104
+        height: 63
+      spriteId: 09272070f3af6af479fe687e481c7ec4
+    - name: enemysamurai_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: -55
+        y: 0
+        width: 104
+        height: 63
+      spriteId: fa2e2c98a14ff6a4bb9271a52812c77e
+    - name: enemysamurai_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 61
+      spriteId: 0732cd351ac308c46ac2b099795406ba
+    - name: enemysamurai_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 61
+      spriteId: ea3b47872b96f524b8560f880c74623c
+    - name: enemysamurai_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: -55
+        y: 0
+        width: 181
+        height: 61
+      spriteId: 2e12b088b0e4993408f4f2837d8bae83
+    - name: enemysamurai_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: -55
+        y: 0
+        width: 182
+        height: 61
+      spriteId: 1612783d4d7ce76478b364cbcc9c53a7
+    - name: enemysamurai_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: -55
+        y: 0
+        width: 181
+        height: 61
+      spriteId: 395543f034e61e2478d2787fe4649982
+    - name: enemysamurai_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 61
+      spriteId: f48a1dc2e471ec54fbace5c46fec7c44
+    - name: enemysamurai_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: -55
+        y: 0
+        width: 180
+        height: 61
+      spriteId: f553f19e07b9c5141a2a41ecf4d4d206
+    - name: enemysamurai_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: -55
+        y: 0
+        width: 51
+        height: 61
+      spriteId: a90403a9c52000e45811ec5c5b747873
+    - name: enemysamurai_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 61
+      spriteId: b8a6fb108f9682643b7b8b900d61fccd
+    - name: enemysamurai_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: -55
+        y: 0
+        width: 223
+        height: 64
+      spriteId: 38fc045c9505b684bbdacc5131222ba9
+    - name: enemysamurai_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: -55
+        y: 0
+        width: 118
+        height: 63
+      spriteId: 9557156455445714b9c1bb6ef45794f0
+    - name: enemysamurai_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: -55
+        y: 0
+        width: 223
+        height: 64
+      spriteId: e46de43cd99c05e49be19a65b82e25fd
+    - name: enemysamurai_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: -55
+        y: 0
+        width: 115
+        height: 61
+      spriteId: ed40cabd81fce4c4386df3d9ec0f39df
+    - name: enemysamurai_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: -55
+        y: 0
+        width: 183
+        height: 61
+      spriteId: c8f5513719d7ef347b0c73d79fd0634c
+    - name: enemysamurai_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: -55
+        y: 0
+        width: 166
+        height: 63
+      spriteId: 9c24d3854cc480a47b60ac0e922c69ea
+    - name: enemysamurai_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: -55
+        y: 0
+        width: 166
+        height: 63
+      spriteId: 0fe576f9e00150f448000095a2e8a929
+    - name: enemysamurai_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: -55
+        y: 0
+        width: 166
+        height: 63
+      spriteId: 6422c90ccec7d6c4ea241072872a152e
+    - name: enemysamurai_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 61
+      spriteId: c7a60fb058c018c4093990ce481ceec9
+    - name: enemysamurai_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: -55
+        y: 0
+        width: 223
+        height: 64
+      spriteId: 62017ad430282ce4883af58626cee0b1
+    - name: enemysamurai_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: -55
+        y: 0
+        width: 115
+        height: 63
+      spriteId: 97535360a9f8ee542b869c060017549c
+    - name: enemysamurai_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: -55
+        y: 0
+        width: 223
+        height: 64
+      spriteId: 5ca074e4886cc1d46ad05ce4e51f915e
+    - name: enemysamurai_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 62
+      spriteId: 74c44fffc12bd5d4f996d7e7b89525ab
+    - name: enemysamurai_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 62
+      spriteId: 4db0e32b2dc33bb45ad98149b5a6fbe4
+    - name: enemysamurai_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: -55
+        y: 0
+        width: 116
+        height: 62
+      spriteId: 7b4ce4bb083dc1046aba0192a9e105ab
+    - name: enemysamurai_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: -55
+        y: 0
+        width: 166
+        height: 63
+      spriteId: b3fcee63fabd3e24195562106c86b55f
+    - name: enemysamurai_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: -55
+        y: 0
+        width: 166
+        height: 63
+      spriteId: d25f302045863724ab8d9bb12beec09e
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 64, y: 64}
