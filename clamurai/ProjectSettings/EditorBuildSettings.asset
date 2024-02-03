@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/story/WellEarnedRest.unity
     guid: 8754a1384ebe8924f96842db7d06356b
+  - enabled: 1
+    path: Assets/Scenes/levels/LastStand.unity
+    guid: 6ecfd988654122b4b98019e17b6e6bc9
   m_configObjects: {}
