@@ -10,7 +10,6 @@ public class SamuraiReadyToStrikeState : SamuraiBaseState
     public override int HandleInput()
     {
         // Check internal timer to decide when to move to Strike state. 
-        // Check for hurt-ed-ness, if so, set variables for "counter attack energy" or some such so it'll retaliate more quickly after recovery.
         strikeDelayCurrent -= Time.deltaTime;
         if (strikeDelayCurrent <= 0)
         {
@@ -22,7 +21,7 @@ public class SamuraiReadyToStrikeState : SamuraiBaseState
     public override void Enter()
     {
         // maybe set warning color
-        owner.transform.localScale = owner.transform.localScale * .8f;
+        // Freeze animation, maybe?
         owner.rb.velocity = Vector2.zero;
         strikeDelayCurrent = strikeDelayMax;
         base.Enter();

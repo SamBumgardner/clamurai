@@ -1,20 +1,20 @@
+using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class SamuraiChaseState : SamuraiBaseState
 {
     public SamuraiChaseState(Samurai samurai, StateMachine<Samurai> stateMachine) : base(samurai, stateMachine) { }
 
-    const float MOVE_COOLDOWN_MAX = 3;
-    public float moveCoolDownReductionRate = .7f;
-    public float moveCooldownMax = 3;
-    public float moveCooldownCurrent = 1;
-    public float moveDecayRate = .95f;
+    const float BACKSTEP_CHANCE = .5f;
+    const float BACKSTEP_DISTANCE_CHECK = 4f;
+    public float moveDecayRate = .85f;
 
-    public float strikeCooldownMax = 5;
+    public float strikeCooldownMax = 3;
     public float strikeCooldownCurrent = 2;
-    public float strikeMinDistance = 4;
+    public float strikeMinDistance = 6;
 
-    public float chaseVelocityMax = 8;
+    public float chaseVelocityMax = 10;
 
     public override int HandleInput()
     {
@@ -23,13 +23,14 @@ public class SamuraiChaseState : SamuraiBaseState
         if (distanceToPlayer > owner.chaseVisionDistance)
         {
             // Reset aggression
-            return (int)SamuraiStates.IDLE;
+            return (int)SamuraiStates.PATROL;
         }
 
         // Check cooldown to see if it can do a lunging strike - begins charging if so
         strikeCooldownCurrent -= Time.deltaTime;
         if (strikeCooldownCurrent <= 0 && distanceToPlayer < strikeMinDistance)
         {
+            strikeCooldownCurrent = strikeCooldownMax * owner.health / owner.maxHealth;
             return (int)SamuraiStates.READY_TO_STRIKE;
         }
         return base.HandleInput();
@@ -37,18 +38,21 @@ public class SamuraiChaseState : SamuraiBaseState
 
     public override void PhysicsUpdate()
     {
-        moveCooldownCurrent -= Time.fixedDeltaTime;
-        if (moveCooldownCurrent <= 0)
+        if (owner.rb.velocity.magnitude <= .2)
         {
-            owner.rb.velocity = owner.GetVectorToPlayer().normalized * chaseVelocityMax;
-            moveCooldownMax *= moveCoolDownReductionRate;
-            moveCooldownCurrent = moveCooldownMax;
+            var vectorToPlayer = owner.GetVectorToPlayer();
+            var stepDirection = vectorToPlayer.normalized.x;
+            if (vectorToPlayer.magnitude < BACKSTEP_DISTANCE_CHECK && UnityEngine.Random.value <= BACKSTEP_CHANCE)
+            {
+                stepDirection *= -1;
+            }
+            owner.rb.velocity = new Vector2(stepDirection * chaseVelocityMax, owner.rb.velocity.y);
 
-            if (owner.rb.velocity.x < 0)
+            if (vectorToPlayer.x < 0)
             {
                 owner.directionX = -1;
             }
-            if (owner.rb.velocity.x > 0)
+            if (vectorToPlayer.x > 0)
             {
                 owner.directionX = 1;
             }
@@ -64,20 +68,9 @@ public class SamuraiChaseState : SamuraiBaseState
     {
         // turn to face player
         var vectorToPlayer = owner.GetVectorToPlayer();
-        if (vectorToPlayer.x > 0)
-        {
-            owner.directionX = 1;
-        }
-        else
-        {
-            owner.directionX = -1;
-        }
-        owner.rb.velocity = Vector2.zero;
+        owner.directionX = Math.Sign(vectorToPlayer.x);
 
         owner.animationToPlay = "chase";
-        moveCooldownMax = MOVE_COOLDOWN_MAX;
-        moveCooldownCurrent = 1;
-        strikeCooldownCurrent = strikeCooldownMax;
         base.Enter();
     }
 }

@@ -7,7 +7,7 @@ public class SamuraiStrikeState : SamuraiBaseState
     public Vector2 strikeDirection;
     public float strikeVelocity = 15;
     
-    public float strikeDurationMax = .5f;
+    public float strikeDurationMax = .2f;
     public float strikeDurationCurrent;
 
     public override int HandleInput()
@@ -25,9 +25,7 @@ public class SamuraiStrikeState : SamuraiBaseState
     {
         owner.animationToPlay = "strike";
 
-        owner.spriteRenderer.color = Color.red;
-        owner.transform.localScale = new Vector3(owner.directionX, 1, 1);
-        strikeDirection = owner.GetVectorToPlayer().normalized;
+        strikeDirection = new Vector2(owner.directionX, 0);
         owner.rb.velocity = strikeDirection * strikeVelocity;
 
         strikeDurationCurrent = strikeDurationMax;

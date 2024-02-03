@@ -7,23 +7,25 @@ public class Samurai : BaseEnemy<Samurai>, ISpawnable
 
     public GameObject player;
 
+    public float maxHealth = 10;
     public float directionX = 1;
 
     public float patrolVelocityX = 1;
     public float patrolTime = 2;
     public float waitTime = 2;
 
-    public float patrolVisionDistance = 4;
-    public float chaseVisionDistance = 7;
+    public float patrolVisionDistance = 10;
+    public float chaseVisionDistance = 12;
 
     public bool isDying = false;
 
     Samurai()
     {
-        states.Add(new OctIdleState(this, stateMachine));
-        states.Add(new OctChaseState(this, stateMachine));
-        states.Add(new OctReadyToStrikeState(this, stateMachine));
-        states.Add(new OctStrikeState(this, stateMachine));
+        states.Add(new SamuraiPatrolState(this, stateMachine));
+        states.Add(new SamuraiChaseState(this, stateMachine));
+        states.Add(new SamuraiReadyToStrikeState(this, stateMachine));
+        states.Add(new SamuraiStrikeState(this, stateMachine));
+        states.Add(new SamuraiHurtState(this, stateMachine));
     }
 
     public void initialize(params object[] args)
@@ -41,6 +43,7 @@ public class Samurai : BaseEnemy<Samurai>, ISpawnable
         {
             overlapDetector.DisableCollision();
         }
+        Destroy(gameObject); // take this out when we have an on-death animation
     }
 
     public void OnDyingAnimationFinished()
@@ -59,6 +62,6 @@ public class Samurai : BaseEnemy<Samurai>, ISpawnable
 
     public void OnDestroy()
     {
-        GettingDestroyed(this, null);
+        //GettingDestroyed(this, null);
     }
 }

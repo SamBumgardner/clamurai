@@ -6,6 +6,11 @@ public class SamuraiBaseState : State<Samurai>
 
     public override int HandleInput()
     {
+        if (owner.tookDamage)
+        {
+            return (int)SamuraiStates.HURT;
+        }
+
         return base.HandleInput();
     }
 
