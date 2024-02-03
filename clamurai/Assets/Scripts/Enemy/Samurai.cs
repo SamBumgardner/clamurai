@@ -61,6 +61,6 @@ public class Samurai : BaseEnemy<Samurai>, ISpawnable
 
     public void OnDestroy()
     {
-        //GettingDestroyed(this, null);
+        GettingDestroyed(this, null);
     }
 }

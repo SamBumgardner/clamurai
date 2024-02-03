@@ -119,7 +119,7 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
             animationToPlay = null;
         }
 
-        if (invuln && health > 0)
+        if (invuln)
         {
             // dim color to grey if not already
             spriteRenderer.color = Color.gray;

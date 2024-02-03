@@ -32,9 +32,18 @@ public class HUDUpdater : MonoBehaviour
             health.rectTransform.sizeDelta = new Vector2(healthWidth * player.health / player.healthMax, health.rectTransform.rect.height);
         }
 
-        if (CollectibleCountText != null && objectiveManager != null)
+        if (CollectibleCountText != null)
         {
-            CollectibleCountText.text = objectiveManager.GetCompletedObjectiveCount() + " of " + objectiveManager.GetTotalObjectiveCount();
+            CollectibleCountText.text = GetObjectiveProgressString();
         }
+    }
+
+    public virtual string GetObjectiveProgressString()
+    {
+        if (objectiveManager != null)
+        {
+            return objectiveManager.GetCompletedObjectiveCount() + " of " + objectiveManager.GetTotalObjectiveCount();
+        }
+        return "";
     }
 }
