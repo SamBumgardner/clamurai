@@ -36,14 +36,13 @@ public class Samurai : BaseEnemy<Samurai>, ISpawnable
 
     public override void Defeat()
     {
-        animationToPlay = "death";
+        animationToPlay = "dying";
         spriteRenderer.color = Color.white;
         rb.simulated = false;
         foreach (var overlapDetector in overlapDetectors)
         {
             overlapDetector.DisableCollision();
         }
-        Destroy(gameObject); // take this out when we have an on-death animation
     }
 
     public void OnDyingAnimationFinished()

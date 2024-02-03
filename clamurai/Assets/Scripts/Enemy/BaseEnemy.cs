@@ -122,7 +122,6 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
         if (invuln && health > 0)
         {
             // dim color to grey if not already
-            print("color went to gray");
             spriteRenderer.color = Color.gray;
             
         }
@@ -153,11 +152,9 @@ public abstract class BaseEnemy<T> : MonoBehaviour, ITriggerOwner
 
     public virtual void Hurt(float damage, float knockbackDirection)
     {
-        print("oof, hurt function started");
         health -= damage;
         tookDamage = true;
         invuln = true;
-        print($"invuln is {invuln}");
         foreach (var overlapDetector in overlapDetectors)
         {
             overlapDetector.DisableCollision();
